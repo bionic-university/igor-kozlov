@@ -1,0 +1,6 @@
+.idea
+app/cache
+app/logs
+.DS_Store
+.netbeans
+desktop.ini
