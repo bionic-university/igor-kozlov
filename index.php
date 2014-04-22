@@ -29,12 +29,12 @@ if (!$string) {
 } else {
     echo "String you input are next:\n $string \n";
     echo "Total chars:\n" . mb_strlen($string,'UTF-8') . "\n";
+    $uniqueListAll="";
     $unique="";
     foreach (mb_count_chars($string) as $i => $val) {
         $unique.=$i.' ';
+        $uniqueListAll.="There were $val instance(s) of \"". $i. "\" in the string.\n";
     }
     echo "Unique character: " .$unique."\n";
-    foreach (mb_count_chars($string) as $i => $val) {
-        echo "There were $val instance(s) of \"", $i, "\" in the string.\n";
-    }
+    echo $uniqueListAll;
 }
