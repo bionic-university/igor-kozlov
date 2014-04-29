@@ -1,7 +1,7 @@
 <?php
 include 'classes/House.php';
-include 'classes/industrialСomplex.php';
-include 'classes/dwellingHouse.php';
+include 'classes/IndustrialСomplex.php';
+include 'classes/DwellingHouse.php';
 include 'classes/Hostel.php';
 
 $dHouse = new Hostel(12, 5);
