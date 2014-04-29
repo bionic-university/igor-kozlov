@@ -7,7 +7,7 @@
 * Improve my PHP skill
 * Practice with Git
 
-**Repository scructure:**
+**Repository structure:**
 
 * count_chars - count chars in input string from command line
 * house_oop - OOP example
