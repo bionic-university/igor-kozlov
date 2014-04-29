@@ -17,9 +17,9 @@ class industrialСomplex extends House
      * @param $fee
      * @param $roommatesCount
      */
-    function __construct($hostel, $product, $fee, $roommatesCount)
+    function __construct(Hostel $hostel, $product, $fee, $roommatesCount)
     {
-        $this->hostel = new Hostel($fee, $roommatesCount);
+        $this->hostel = $hostel;
         $this->product = $product;
     }
 
