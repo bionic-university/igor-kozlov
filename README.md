@@ -1,7 +1,5 @@
 # Igor Kozlov
 ###Bionic projects
-# Igor Kozlov
-###Bionic projects
 
 |This repository created for:|
 |-----------|-----------|
