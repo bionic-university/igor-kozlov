@@ -12,6 +12,11 @@ class Hacker
     private $nickname;
 
     /**
+     * @var int
+     */
+    private $proficiency;
+
+    /**
      * @var array
      */
     private $toolsToScan = array(
@@ -32,13 +37,11 @@ class Hacker
         'customTool'
     );
 
-    function __construct($fullname, $nickname, $toolsToHack, $toolsToScan, $toolsToSelfProtect)
+    function __construct($fullname, $nickname)
     {
+        $this->proficiency = rand(0, 10);
         $this->fullname = $fullname;
         $this->nickname = $nickname;
-        $this->toolsToHack = $toolsToHack;
-        $this->toolsToScan = $toolsToScan;
-        $this->toolsToSelfProtect = $toolsToSelfProtect;
     }
 
     /**
@@ -82,6 +85,23 @@ class Hacker
     }
 
     /**
+     * @return int
+     */
+    public function getProficiency()
+    {
+        return $this->proficiency;
+    }
+
+    /**
+     * @param int $proficiency
+     */
+    public function setProficiency($proficiency)
+    {
+        $this->proficiency = $proficiency;
+    }
+
+
+    /**
      * @param array $tools
      */
     public function setToolsToScan($tools)
@@ -121,5 +141,32 @@ class Hacker
         $this->toolsToHack = $toolsToHuck;
     }
 
+    /**
+     * @param $string
+     * @return string
+     * @TODO find better solution with cheking if class exist
+     */
+    public function hack($string)
+    {
+        if (class_exists('Application\\' . $string)) {
+            echo "Hacker proficiency: " . $this->getProficiency() . PHP_EOL;
+            $a = 'Application\\' . $string;
+            $object = new $a;
+            $myReflection = new ReflectionClass($object);
+            if ($myReflection->isSubclassOf('Application\AbstractApplication')) {
+                echo "Application securityCoef: " . $object->getSecurityCoef() . PHP_EOL;
+                if ($object->getSecurityCoef() < $this->getProficiency() + rand(-2, 2)) {
+                    $result = "Hacked!" . PHP_EOL;
+                } else {
+                    $result = "Not hacked!" . PHP_EOL;
+                }
+            } else {
+                $result = "This class is not a program!!!" . PHP_EOL;
+            }
+        } else {
+            $result = "Wrong class name!!!" . PHP_EOL;
+        }
+        return $result;
+    }
 
 }
