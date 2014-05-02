@@ -78,8 +78,8 @@ class WebApplication extends AbstractApplication
     /**
      * @return mixed
      */
-    protected function giveInformation()
+    public function giveInformation()
     {
-        return 'Application '.$this->getName().'on URL '.$this->getURL().'use server '.$this->getServer();
+        return 'Application ' . $this->getName() . 'on URL ' . $this->getURL() . 'use server ' . $this->getServer().PHP_EOL;
     }
 }

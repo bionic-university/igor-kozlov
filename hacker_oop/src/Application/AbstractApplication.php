@@ -37,7 +37,7 @@ abstract class AbstractApplication
     /**
      * @return mixed
      */
-    abstract protected function giveInformation();
+    abstract public function giveInformation();
 
 
 } 

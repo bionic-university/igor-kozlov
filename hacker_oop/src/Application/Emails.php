@@ -3,13 +3,14 @@
 namespace Application;
 
 
-class Emails extends WebApplication
+class Emails extends WebApplication implements HackableInterface
 {
     private $username;
     private $password;
 
     function __construct($URL = "http://mail.com", $name = "mail", $server = "apache", $password = "test", $username = "test")
     {
+        $this->setSecurityCoef(rand(20, 60));
         $this->setURL($URL);
         $this->setName($name);
         $this->setServer($server);
@@ -52,9 +53,13 @@ class Emails extends WebApplication
     /**
      * @return string
      */
-    protected function giveInformation()
+    public function giveInformation()
     {
         return 'Ha-Ha! You cant hack email!' . PHP_EOL;
     }
 
-} 
+    public function isHackable()
+    {
+        return false;
+    }
+}
