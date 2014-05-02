@@ -29,14 +29,12 @@ class SocialNetwork extends WebApplication
         'Happy Farm', 'Poker', 'Nano Farm'
     );
 
-    function __construct($url, $name, $server, $communityApplications, $groups, $messages)
+    function __construct($url="http://vz.com", $name="vz", $server="apache")
     {
+        $this->setSecurityCoef(rand (0,6));
         $this->setURL($url);
         $this->setName($name);
         $this->setServer($server);
-        $this->communityApplications = $communityApplications;
-        $this->groups = $groups;
-        $this->messages = $messages;
     }
 
 

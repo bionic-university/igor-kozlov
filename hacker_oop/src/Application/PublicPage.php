@@ -9,7 +9,8 @@
 namespace Application;
 
 
-class PublicPage extends WebApplication{
+class PublicPage extends WebApplication
+{
     use MaterialsTrait;
 
     /**
@@ -17,8 +18,9 @@ class PublicPage extends WebApplication{
      */
     private $publications;
 
-    function __construct($publications)
+    function __construct($publications = array('Steve Vai', 'Metallica official page'))
     {
+        $this->setSecurityCoef(rand(0, 6));
         $this->publications = $publications;
     }
 

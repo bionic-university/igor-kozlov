@@ -23,14 +23,12 @@ class Forum extends WebApplication
      * @var array
      */
 
-    function __construct($url, $name, $server, $materials, $topics, $usersInfo)
+    function __construct($url = "http://0week.kiev.ua", $name = "0week", $server = "NGINX")
     {
+        $this->setSecurityCoef(rand(0, 6));
         $this->setURL($url);
         $this->setName($name);
         $this->setServer($server);
-        $this->materials = $materials;
-        $this->topics = $topics;
-        $this->usersInfo = $usersInfo;
     }
 
 
