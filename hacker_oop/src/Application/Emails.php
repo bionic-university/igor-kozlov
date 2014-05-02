@@ -3,11 +3,12 @@
 namespace Application;
 
 
-class Emails extends WebApplication{
+class Emails extends WebApplication
+{
     private $username;
     private $password;
 
-    function __construct($URL, $name, $server, $password, $username)
+    function __construct($URL = "http://mail.com", $name = "mail", $server = "apache", $password = "test", $username = "test")
     {
         $this->setURL($URL);
         $this->setName($name);
@@ -53,7 +54,7 @@ class Emails extends WebApplication{
      */
     protected function giveInformation()
     {
-        return 'Ha-Ha! You cant hack email!'.PHP_EOL;
+        return 'Ha-Ha! You cant hack email!' . PHP_EOL;
     }
 
 } 
