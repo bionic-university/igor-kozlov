@@ -14,7 +14,7 @@ class StandaloneApplication extends AbstractApplication implements HackableInter
 
     public function giveInformation()
     {
-        // TODO: Implement giveInformation() method.
+        $string = 'Application ' . $this->getName() . 'on URL ' . $this->getURL() . 'use server ' . $this->getServer() . PHP_EOL;
     }
 
     public function isHackable()
