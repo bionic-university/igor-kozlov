@@ -144,18 +144,17 @@ class Hacker
     /**
      * @param $string
      * @return string
-     * @TODO find better solution with cheking if class exist, make method simply
      */
     public function hack($string)
     {
         $result = "";
         if (class_exists('Application\\' . $string)) {
-            echo "Hacker proficiency: " . $this->getProficiency() . PHP_EOL;
             $a = 'Application\\' . $string;
             $object = new $a;
             $myReflection = new ReflectionClass($object);
             if ($myReflection->isSubclassOf('Application\AbstractApplication')) {
                 if ($object->isHackable()) {
+                    echo "Hacker proficiency: " . $this->getProficiency() . PHP_EOL;
                     echo "Application securityCoef: " . $object->getSecurityCoef() . PHP_EOL;
                     if ($object->getSecurityCoef() < $this->getProficiency() + rand(-2, 2)) {
                         $result = "Hacked!" . PHP_EOL;
