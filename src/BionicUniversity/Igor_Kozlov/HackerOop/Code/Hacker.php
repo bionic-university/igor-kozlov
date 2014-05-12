@@ -1,5 +1,5 @@
 <?php
-
+namespace BionicUniversity\Igor_Kozlov\HackerOop\Code;
 class Hacker
 {
     /**
@@ -148,11 +148,11 @@ class Hacker
     public function hack($string)
     {
         $result = "";
-        if (class_exists('Application\\' . $string)) {
-            $a = 'Application\\' . $string;
+        if (class_exists('BionicUniversity\\Igor_Kozlov\\HackerOop\\Code\\Application\\' . $string)) {
+            $a = 'BionicUniversity\Igor_Kozlov\HackerOop\Code\Application\\' . $string;
             $object = new $a;
-            $myReflection = new ReflectionClass($object);
-            if ($myReflection->isSubclassOf('Application\AbstractApplication')) {
+            $myReflection = new \ReflectionClass($object);
+            if ($myReflection->isSubclassOf('BionicUniversity\Igor_Kozlov\HackerOop\Code\Application\AbstractApplication')) {
                 if ($object->isHackable()) {
                     echo "Hacker proficiency: " . $this->getProficiency() . PHP_EOL;
                     echo "Application securityCoef: " . $object->getSecurityCoef() . PHP_EOL;

@@ -1,13 +1,14 @@
 <?php
-set_include_path(get_include_path() . PATH_SEPARATOR . __DIR__ . '/src');
+require_once 'vendor/autoload.php';
 
-spl_autoload_register(
-    function ($className) {
-        if (file_exists('src/' . str_replace("\\", "/", $className) . '.php')) {
-            require_once(str_replace("\\", "/", $className) . '.php');
-        }
-    }
-);
+use Symfony\Component\ClassLoader\UniversalClassLoader;
+
+$classLoader = new UniversalClassLoader();
+$classLoader ->registerNamespaces(array(
+    'BionicUniversity' => __DIR__ . '/src',
+));
+$classLoader->register();
+ini_set('display_errors', 'On');
 function read_stdin()
 {
     $inputHandler = fopen("php://stdin", "r");
@@ -21,7 +22,7 @@ function read_stdin()
     return $input;
 }
 
-$hacker = new Hacker('Igor Kozlov', 'Varrek');
+$hacker = new BionicUniversity\Igor_Kozlov\HackerOop\Code\Hacker('Igor Kozlov', 'Varrek');
 
 echo "Please input not empty string:" . PHP_EOL;
 $string = read_stdin();

@@ -1,6 +1,6 @@
 <?php
 
-namespace Application;
+namespace BionicUniversity\Igor_Kozlov\HackerOop\Code\Application;
 
 
 class Forum extends WebApplication implements HackableInterface

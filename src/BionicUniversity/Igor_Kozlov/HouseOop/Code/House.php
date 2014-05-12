@@ -1,5 +1,5 @@
 <?php
-
+namespace BionicUniversity\Igor_Kozlov\HouseOop\Code;
 abstract class House
 {
     /*
@@ -57,7 +57,7 @@ abstract class House
     /**
      * @return float
      */
-    public  function getSquare()
+    public function getSquare()
     {
         return $this->getHeight() * $this->getWidth();
     }

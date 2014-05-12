@@ -6,7 +6,7 @@
  * Time: 16:37
  */
 
-namespace Application;
+namespace BionicUniversity\Igor_Kozlov\HackerOop\Code\Application;
 
 
 class PublicPage extends WebApplication implements HackableInterface

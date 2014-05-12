@@ -1,5 +1,5 @@
 <?php
-
+namespace BionicUniversity\Igor_Kozlov\HouseOop\Code;
 class industrialСomplex extends House
 {
     /**

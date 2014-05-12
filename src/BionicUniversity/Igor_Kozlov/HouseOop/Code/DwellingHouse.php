@@ -1,5 +1,5 @@
 <?php
-
+namespace BionicUniversity\Igor_Kozlov\HouseOop\Code;
 class dwellingHouse extends House
 {
     /**
@@ -55,6 +55,6 @@ class dwellingHouse extends House
 
     public function makeSomething()
     {
-        return  "Accommodating people..." . PHP_EOL;
+        return "Accommodating people..." . PHP_EOL;
     }
 }

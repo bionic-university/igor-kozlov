@@ -1,6 +1,7 @@
 <?php
-
-class Hostel extends dwellingHouse {
+namespace BionicUniversity\Igor_Kozlov\HouseOop\Code;
+class Hostel extends DwellingHouse
+{
     /**
      * @var float
      */
@@ -55,7 +56,7 @@ class Hostel extends dwellingHouse {
 
     public function makeSomething()
     {
-       return "Reservation...".PHP_EOL;
+        return "Reservation..." . PHP_EOL;
     }
 
     /**
@@ -63,7 +64,7 @@ class Hostel extends dwellingHouse {
      */
     public function getPrice()
     {
-        return $this->getFee()*$this->getRoommatesCount();
+        return $this->getFee() * $this->getRoommatesCount();
     }
 
 
