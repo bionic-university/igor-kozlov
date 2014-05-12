@@ -1,0 +1,13 @@
+{
+    "name": "bionic/igor-kozlov",
+    "authors": [
+        {
+            "name": "Igor Kozlov",
+            "email": "varrekminosh@gmail.com"
+        }
+    ],
+    "require": {
+            "phpunit/phpunit":"*",
+            "symfony/class-loader":"2.4.*"
+    }
+}

@@ -4,3 +4,7 @@ app/logs
 .DS_Store
 .netbeans
 desktop.ini
+
+/vendor/
+composer.phar
+composer.lock
