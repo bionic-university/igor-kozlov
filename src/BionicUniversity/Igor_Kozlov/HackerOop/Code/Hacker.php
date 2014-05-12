@@ -37,7 +37,7 @@ class Hacker
         'customTool'
     );
 
-    function __construct($fullname, $nickname)
+    function __construct($fullname="", $nickname="")
     {
         $this->proficiency = rand(0, 10);
         $this->fullname = $fullname;
