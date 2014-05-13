@@ -37,7 +37,7 @@ class Hacker
         'customTool'
     );
 
-    function __construct($fullname="", $nickname="")
+    function __construct($fullname = "", $nickname = "")
     {
         $this->proficiency = rand(0, 10);
         $this->fullname = $fullname;
@@ -148,11 +148,11 @@ class Hacker
     public function hack($string)
     {
         $result = "";
-        if (class_exists('BionicUniversity\\Igor_Kozlov\\HackerOop\\Code\\Application\\' . $string)) {
-            $a = 'BionicUniversity\Igor_Kozlov\HackerOop\Code\Application\\' . $string;
+        if (class_exists('BionicUniversity\\IgorKozlov\\HackerOop\\Code\\Application\\' . $string)) {
+            $a = 'BionicUniversity\IgorKozlov\HackerOop\Code\Application\\' . $string;
             $object = new $a;
             $myReflection = new \ReflectionClass($object);
-            if ($myReflection->isSubclassOf('BionicUniversity\Igor_Kozlov\HackerOop\Code\Application\AbstractApplication')) {
+            if ($myReflection->isSubclassOf('BionicUniversity\IgorKozlov\HackerOop\Code\Application\AbstractApplication')) {
                 if ($object->isHackable()) {
                     echo "Hacker proficiency: " . $this->getProficiency() . PHP_EOL;
                     echo "Application securityCoef: " . $object->getSecurityCoef() . PHP_EOL;

@@ -22,7 +22,7 @@ function read_stdin()
     return $input;
 }
 
-$hacker = new BionicUniversity\Igor_Kozlov\HackerOop\Code\Hacker('Igor Kozlov', 'Varrek');
+$hacker = new BionicUniversity\IgorKozlov\HackerOop\Code\Hacker("Igor Kozlov", "Varrek");
 
 echo "Please input not empty string:" . PHP_EOL;
 $string = read_stdin();
