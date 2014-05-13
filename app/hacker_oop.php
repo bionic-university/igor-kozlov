@@ -1,13 +1,7 @@
 <?php
-set_include_path(get_include_path() . PATH_SEPARATOR . __DIR__ . '/src');
+require __DIR__ . '/../bootstrap.php';
+use BionicUniversity\IgorKozlov\HackerOop\Code\Hacker;
 
-spl_autoload_register(
-    function ($className) {
-        if (file_exists('src/' . str_replace("\\", "/", $className) . '.php')) {
-            require_once(str_replace("\\", "/", $className) . '.php');
-        }
-    }
-);
 function read_stdin()
 {
     $inputHandler = fopen("php://stdin", "r");
@@ -21,7 +15,7 @@ function read_stdin()
     return $input;
 }
 
-$hacker = new Hacker('Igor Kozlov', 'Varrek');
+$hacker = new BionicUniversity\IgorKozlov\HackerOop\Code\Hacker("Igor Kozlov", "Varrek");
 
 echo "Please input not empty string:" . PHP_EOL;
 $string = read_stdin();

@@ -1,6 +1,6 @@
 <?php
 
-namespace Application;
+namespace BionicUniversity\IgorKozlov\HackerOop\Code\Application;
 
 
 class SocialNetwork extends WebApplication implements HackableInterface
