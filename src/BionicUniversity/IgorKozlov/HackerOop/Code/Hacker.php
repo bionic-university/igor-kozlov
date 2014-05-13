@@ -1,5 +1,5 @@
 <?php
-namespace BionicUniversity\Igor_Kozlov\HackerOop\Code;
+namespace BionicUniversity\IgorKozlov\HackerOop\Code;
 class Hacker
 {
     /**

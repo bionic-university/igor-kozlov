@@ -1,8 +1,8 @@
 <?php
 
-namespace BionicUniversity\Igor_Kozlov\HackerOop\Tests;
+namespace BionicUniversity\IgorKozlov\HackerOop\Tests;
 
-use BionicUniversity\Igor_Kozlov\HackerOop\Code\Hacker;
+use BionicUniversity\IgorKozlov\HackerOop\Code\Hacker;
 use Symfony\Component\Finder\Finder;
 
 class HackerTest extends \PHPUnit_Framework_TestCase

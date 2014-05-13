@@ -1,14 +1,7 @@
 <?php
-require_once 'vendor/autoload.php';
+require __DIR__ . '/../bootstrap.php';
+use BionicUniversity\IgorKozlov\HouseOop\Code\Hostel;
 
-use Symfony\Component\ClassLoader\UniversalClassLoader;
-
-$classLoader = new UniversalClassLoader();
-$classLoader ->registerNamespaces(array(
-    'BionicUniversity' => __DIR__ . '/src',
-));
-$classLoader->register();
-ini_set('display_errors', 'On');
 $dHouse = new BionicUniversity\IgorKozlov\HouseOop\Code\Hostel(12, 5);
 $dHouse->setHeight(10);
 $dHouse->setWidth(15);

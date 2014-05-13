@@ -1,7 +1,7 @@
 <?php
 
 
-namespace BionicUniversity\Igor_Kozlov\HackerOop\Code\Application;
+namespace BionicUniversity\IgorKozlov\HackerOop\Code\Application;
 
 
 class StandaloneApplication extends AbstractApplication implements HackableInterface

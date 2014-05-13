@@ -1,6 +1,6 @@
 <?php
 
-namespace BionicUniversity\Igor_Kozlov\HackerOop\Code\Application;
+namespace BionicUniversity\IgorKozlov\HackerOop\Code\Application;
 
 
 trait UserTrait

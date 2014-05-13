@@ -1,14 +1,7 @@
 <?php
-require_once 'vendor/autoload.php';
+require __DIR__ . '/../bootstrap.php';
+use BionicUniversity\IgorKozlov\HackerOop\Code\Hacker;
 
-use Symfony\Component\ClassLoader\UniversalClassLoader;
-
-$classLoader = new UniversalClassLoader();
-$classLoader ->registerNamespaces(array(
-    'BionicUniversity' => __DIR__ . '/src',
-));
-$classLoader->register();
-ini_set('display_errors', 'On');
 function read_stdin()
 {
     $inputHandler = fopen("php://stdin", "r");
