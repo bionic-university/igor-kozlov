@@ -24,4 +24,5 @@ class HackerTest extends \PHPUnit_Framework_TestCase
         $hacker->setToolsToScan($toolsToScan);
         $this->assertEquals($toolsToScan, $hacker->getToolsToScan());
     }
+
 } 

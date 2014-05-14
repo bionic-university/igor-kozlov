@@ -1,13 +1,16 @@
 <?php
-class MyClass {
-    private $myProperty = true;
+
+class MyClass
+{
+    private function myProperty()
+    {
+        return true;
+    }
 }
 
 $class = new ReflectionClass("MyClass");
-$property = $class->getProperty("myProperty");
-$property->setAccessible(true);
+$class->getMethod("myProperty")->setAccessible(true);
 
-$obj = new MyClass();
-echo $property->getValue($obj); // Works
-//echo $obj->myProperty; // Doesn't work (error)
+$public = $class->newInstance();
+echo $public->myProperty();
 ?>
