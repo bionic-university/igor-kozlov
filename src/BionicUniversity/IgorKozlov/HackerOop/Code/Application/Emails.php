@@ -3,12 +3,29 @@
 namespace BionicUniversity\IgorKozlov\HackerOop\Code\Application;
 
 
+/**
+ * Class Emails
+ * @package BionicUniversity\IgorKozlov\HackerOop\Code\Application
+ */
 class Emails extends WebApplication implements HackableInterface
 {
+    /**
+     * @var string
+     */
     private $username;
+    /**
+     * @var string
+     */
     private $password;
 
-    function __construct($URL = "http://mail.com", $name = "mail", $server = "apache", $password = "test", $username = "test")
+    /**
+     * @param string $URL
+     * @param string $name
+     * @param string $server
+     * @param string $password
+     * @param string $username
+     */
+    public function __construct($URL = "http://mail.com", $name = "mail", $server = "apache", $password = "test", $username = "test")
     {
         $this->setSecurityCoef(rand(20, 60));
         $this->setURL($URL);
@@ -58,6 +75,9 @@ class Emails extends WebApplication implements HackableInterface
         return 'Ha-Ha! You cant hack email!' . PHP_EOL;
     }
 
+    /**
+     * @return bool
+     */
     public function isHackable()
     {
         return false;

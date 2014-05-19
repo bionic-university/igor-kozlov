@@ -3,6 +3,10 @@
 namespace BionicUniversity\IgorKozlov\HackerOop\Code\Application;
 
 
+/**
+ * Class AbstractApplication
+ * @package BionicUniversity\IgorKozlov\HackerOop\Code\Application
+ */
 abstract class AbstractApplication
 {
     /**
@@ -13,7 +17,7 @@ abstract class AbstractApplication
     /**
      * @param $securityCoef
      */
-    function __construct($securityCoef)
+    public function __construct($securityCoef)
     {
         $this->securityCoef = $securityCoef;
     }

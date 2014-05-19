@@ -1,5 +1,9 @@
 <?php
 namespace BionicUniversity\IgorKozlov\HackerOop\Code;
+/**
+ * Class Hacker
+ * @package BionicUniversity\IgorKozlov\HackerOop\Code
+ */
 class Hacker
 {
     /**
@@ -37,7 +41,11 @@ class Hacker
         'customTool'
     );
 
-    function __construct($fullname = "", $nickname = "")
+    /**
+     * @param string $fullname
+     * @param string $nickname
+     */
+    public function __construct($fullname = "", $nickname = "")
     {
         $this->proficiency = rand(0, 10);
         $this->fullname = $fullname;
@@ -171,6 +179,7 @@ class Hacker
         } else {
             $result = "Wrong class name!!!" . PHP_EOL;
         }
+
         return $result;
     }
 

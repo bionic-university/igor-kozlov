@@ -33,7 +33,7 @@ class Image extends AbstractResizer implements ImageInterface
      * @param Point $imageCentre
      * @param $width
      */
-    function __construct($height, $width)
+    public function __construct($height, $width)
     {
         $this->height = $height;
         $this->imageFirstCoord = new Point(0, 0);
@@ -44,7 +44,7 @@ class Image extends AbstractResizer implements ImageInterface
      * Thumb =Crop and Resize
      * @return mixed
      */
-    public function thumbnail($mode="", $n = 2, $distanceFromCentre = 20)
+    public function thumbnail($mode = "", $n = 2, $distanceFromCentre = 20)
     {
         if ('resize' == $mode) {
             $thumbnail = $this->resize($n);
@@ -133,7 +133,7 @@ class Image extends AbstractResizer implements ImageInterface
      * @param $height
      * @return Point
      */
-    protected function getCentre($width, $height)
+    protected function getCentre()
     {
         $centre = new Point($this->getWidth() / 2, $this->getHeight() / 2);
         return $centre;

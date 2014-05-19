@@ -1,5 +1,9 @@
 <?php
 namespace BionicUniversity\IgorKozlov\HouseOop\Code;
+/**
+ * Class Hostel
+ * @package BionicUniversity\IgorKozlov\HouseOop\Code
+ */
 class Hostel extends DwellingHouse
 {
     /**
@@ -15,7 +19,7 @@ class Hostel extends DwellingHouse
      * @param $fee
      * @param $roommatesCount
      */
-    function __construct($fee, $roommatesCount)
+    public function __construct($fee, $roommatesCount)
     {
         $this->fee = $fee;
         $this->roommatesCount = $roommatesCount;
@@ -54,6 +58,9 @@ class Hostel extends DwellingHouse
     }
 
 
+    /**
+     * @return string
+     */
     public function makeSomething()
     {
         return "Reservation..." . PHP_EOL;

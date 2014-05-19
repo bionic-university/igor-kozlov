@@ -3,8 +3,15 @@
 namespace BionicUniversity\IgorKozlov\HackerOop\Code\Application;
 
 
+/**
+ * Class MaterialsTrait
+ * @package BionicUniversity\IgorKozlov\HackerOop\Code\Application
+ */
 trait MaterialsTrait
 {
+    /**
+     * @var array
+     */
     private $materials = array('audios' => array(
         'FirstTrack', 'SecondTrack',
     ),

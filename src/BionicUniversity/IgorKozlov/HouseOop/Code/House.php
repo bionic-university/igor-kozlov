@@ -1,9 +1,16 @@
 <?php
 namespace BionicUniversity\IgorKozlov\HouseOop\Code;
+/**
+ * Class House
+ * @package BionicUniversity\IgorKozlov\HouseOop\Code
+ */
 abstract class House
 {
     /*
      * @var float
+     */
+    /**
+     * @var
      */
     protected $width;
 
@@ -16,7 +23,7 @@ abstract class House
      * @param $height
      * @param $width
      */
-    function __construct($height, $width)
+    public function __construct($height, $width)
     {
         $this->height = $height;
         $this->width = $width;
@@ -62,5 +69,8 @@ abstract class House
         return $this->getHeight() * $this->getWidth();
     }
 
+    /**
+     * @return mixed
+     */
     abstract public function makeSomething();
 } 

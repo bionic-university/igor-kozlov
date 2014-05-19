@@ -3,6 +3,10 @@
 namespace BionicUniversity\IgorKozlov\HackerOop\Code\Application;
 
 
+/**
+ * Class Forum
+ * @package BionicUniversity\IgorKozlov\HackerOop\Code\Application
+ */
 class Forum extends WebApplication implements HackableInterface
 {
     use UserTrait;
@@ -19,11 +23,13 @@ class Forum extends WebApplication implements HackableInterface
         )
     );
 
-    /**
-     * @var array
-     */
 
-    function __construct($url = "http://0week.kiev.ua", $name = "0week", $server = "NGINX")
+    /**
+     * @param string $url
+     * @param string $name
+     * @param string $server
+     */
+    public function __construct($url = "http://0week.kiev.ua", $name = "0week", $server = "NGINX")
     {
         $this->setSecurityCoef(rand(0, 6));
         $this->setURL($url);
@@ -48,12 +54,18 @@ class Forum extends WebApplication implements HackableInterface
         $this->topics = $topics;
     }
 
+    /**
+     * @return string
+     */
     function __toString()
     {
         return (string)($this->value);
     }
 
 
+    /**
+     * @return string
+     */
     public function giveInformation()
     {
         $string = 'Application ' . $this->getName() . 'on URL ' . $this->getURL() . 'use server ' . $this->getServer() . PHP_EOL;
@@ -64,6 +76,9 @@ class Forum extends WebApplication implements HackableInterface
     }
 
 
+    /**
+     * @return bool
+     */
     public function isHackable()
     {
         return true;

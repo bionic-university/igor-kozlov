@@ -1,5 +1,9 @@
 <?php
 namespace BionicUniversity\IgorKozlov\HouseOop\Code;
+/**
+ * Class dwellingHouse
+ * @package BionicUniversity\IgorKozlov\HouseOop\Code
+ */
 class dwellingHouse extends House
 {
     /**
@@ -15,7 +19,7 @@ class dwellingHouse extends House
      * @param $numberOfOccupants
      * @param $roomCount
      */
-    function __construct($numberOfOccupants, $roomCount)
+    public function __construct($numberOfOccupants, $roomCount)
     {
         $this->numberOfOccupants = $numberOfOccupants;
         $this->roomCount = $roomCount;
@@ -53,6 +57,9 @@ class dwellingHouse extends House
         $this->roomCount = $roomCount;
     }
 
+    /**
+     * @return string
+     */
     public function makeSomething()
     {
         return "Accommodating people..." . PHP_EOL;

@@ -9,6 +9,10 @@
 namespace BionicUniversity\IgorKozlov\HackerOop\Code\Application;
 
 
+/**
+ * Class PublicPage
+ * @package BionicUniversity\IgorKozlov\HackerOop\Code\Application
+ */
 class PublicPage extends WebApplication implements HackableInterface
 {
     use MaterialsTrait;
@@ -18,7 +22,13 @@ class PublicPage extends WebApplication implements HackableInterface
      */
     private $publications;
 
-    function __construct($url = "http://imaginarium.in.ua", $name = "Igor Kozlov blog", $server = "NGINX", $publications = array('Steve Vai', 'Metallica official page'))
+    /**
+     * @param string $url
+     * @param string $name
+     * @param string $server
+     * @param array $publications
+     */
+    public function __construct($url = "http://imaginarium.in.ua", $name = "Igor Kozlov blog", $server = "NGINX", $publications = array('Steve Vai', 'Metallica official page'))
     {
         $this->setSecurityCoef(rand(0, 6));
         $this->setURL($url);
@@ -53,6 +63,9 @@ class PublicPage extends WebApplication implements HackableInterface
         return $string;
     }
 
+    /**
+     * @return bool
+     */
     public function isHackable()
     {
         return true;
