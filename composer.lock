@@ -3,8 +3,33 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "dc38fc5e10bb017b92d67274ef1ae9b5",
+    "hash": "c11cfacc461d41a8c1ad872419637945",
     "packages": [
+        {
+            "name": "pdepend/pdepend",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pdepend/pdepend.git",
+                "reference": "fbeaa10ee57114d790be5fb6778dcf0404267fef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/fbeaa10ee57114d790be5fb6778dcf0404267fef",
+                "reference": "fbeaa10ee57114d790be5fb6778dcf0404267fef",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.3"
+            },
+            "bin": [
+                "src/bin/pdepend"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Official version of pdepend to be handled with Composer",
+            "time": "2012-09-12 11:09:19"
+        },
         {
             "name": "phpunit/php-code-coverage",
             "version": "2.0.6",
