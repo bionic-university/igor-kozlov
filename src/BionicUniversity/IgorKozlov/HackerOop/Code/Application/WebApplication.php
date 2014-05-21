@@ -3,6 +3,10 @@
 namespace BionicUniversity\IgorKozlov\HackerOop\Code\Application;
 
 
+/**
+ * Class WebApplication
+ * @package BionicUniversity\IgorKozlov\HackerOop\Code\Application
+ */
 class WebApplication extends AbstractApplication
 {
 
@@ -19,7 +23,12 @@ class WebApplication extends AbstractApplication
      */
     private $server;
 
-    function __construct($URL, $name, $server)
+    /**
+     * @param $URL
+     * @param $name
+     * @param $server
+     */
+    public function __construct($URL, $name, $server)
     {
         $this->URL = $URL;
         $this->name = $name;

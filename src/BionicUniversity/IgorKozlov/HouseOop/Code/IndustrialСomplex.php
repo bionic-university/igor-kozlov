@@ -1,5 +1,9 @@
 <?php
 namespace BionicUniversity\IgorKozlov\HouseOop\Code;
+/**
+ * Class industrialСomplex
+ * @package BionicUniversity\IgorKozlov\HouseOop\Code
+ */
 class industrialСomplex extends House
 {
     /**
@@ -17,7 +21,7 @@ class industrialСomplex extends House
      * @param $fee
      * @param $roommatesCount
      */
-    function __construct(Hostel $hostel, $product, $fee, $roommatesCount)
+    public function __construct(Hostel $hostel, $product, $fee, $roommatesCount)
     {
         $this->hostel = $hostel;
         $this->product = $product;

@@ -3,6 +3,10 @@
 namespace BionicUniversity\IgorKozlov\HackerOop\Code\Application;
 
 
+/**
+ * Class SocialNetwork
+ * @package BionicUniversity\IgorKozlov\HackerOop\Code\Application
+ */
 class SocialNetwork extends WebApplication implements HackableInterface
 {
     use UserTrait;
@@ -21,15 +25,26 @@ class SocialNetwork extends WebApplication implements HackableInterface
         )
     );
 
+    /**
+     * @var array
+     */
     private $groups = array(
         'Steve Vai', 'Metallica official page', 'Symfony community', 'NetCop'
     );
 
+    /**
+     * @var array
+     */
     private $communityApplications = array(
         'Happy Farm', 'Poker', 'Nano Farm'
     );
 
-    function __construct($url = "http://vz.com", $name = "vz", $server = "apache")
+    /**
+     * @param string $url
+     * @param string $name
+     * @param string $server
+     */
+    public function __construct($url = "http://vz.com", $name = "vz", $server = "apache")
     {
         $this->setSecurityCoef(rand(0, 6));
         $this->setURL($url);
@@ -87,6 +102,9 @@ class SocialNetwork extends WebApplication implements HackableInterface
     }
 
 
+    /**
+     * @return string
+     */
     public function giveInformation()
     {
         $string = 'Application ' . $this->getName() . 'on URL ' . $this->getURL() . 'use server ' . $this->getServer() . PHP_EOL;
@@ -99,6 +117,9 @@ class SocialNetwork extends WebApplication implements HackableInterface
     }
 
 
+    /**
+     * @return bool
+     */
     public function isHackable()
     {
         return true;
