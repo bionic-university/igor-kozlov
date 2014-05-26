@@ -4,7 +4,7 @@ namespace BionicUniversity\IgorKozlov\HouseOop\Code;
  * Class industrial–°omplex
  * @package BionicUniversity\IgorKozlov\HouseOop\Code
  */
-class Industrial—omplex extends House
+class IndustrialComplex extends House
 {
     /**
      * @var string
@@ -16,8 +16,8 @@ class Industrial—omplex extends House
     protected $hostel;
 
     /**
-     * @param $hostel
-     * @param $product
+     * @param Hostel $hostel
+     * @param string $product
      * @param $fee
      * @param $roommatesCount
      */
@@ -60,7 +60,7 @@ class Industrial—omplex extends House
     }
 
     /**
-     *
+     *@return string
      */
     public function makeSomething()
     {

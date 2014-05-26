@@ -10,7 +10,7 @@ class StandaloneApplication extends AbstractApplication implements HackableInter
 {
 
     /**
-     *
+     * Random coeff
      */
     public function __construct()
     {
@@ -18,11 +18,11 @@ class StandaloneApplication extends AbstractApplication implements HackableInter
     }
 
     /**
-     *
+     * @return String
      */
     public function giveInformation()
     {
-        $string = 'Application ' . $this->getName() . 'on URL ' . $this->getURL() . 'use server ' . $this->getServer() . PHP_EOL;
+        return 'Application ' . $this->getName() . 'on URL ' . $this->getURL() . 'use server ' . $this->getServer() . PHP_EOL;
     }
 
     /**

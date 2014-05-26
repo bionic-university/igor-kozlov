@@ -6,11 +6,8 @@ namespace BionicUniversity\IgorKozlov\HouseOop\Code;
  */
 abstract class House
 {
-    /*
-     * @var float
-     */
     /**
-     * @var
+     * @var float
      */
     protected $width;
 
@@ -20,8 +17,8 @@ abstract class House
     protected $height;
 
     /**
-     * @param $height
-     * @param $width
+     * @param float $height
+     * @param float $width
      */
     public function __construct($height, $width)
     {
@@ -46,7 +43,7 @@ abstract class House
     }
 
     /**
-     * @return mixed
+     * @return float
      */
     public function getWidth()
     {
@@ -54,7 +51,7 @@ abstract class House
     }
 
     /**
-     * @param mixed $width
+     * @param float $width
      */
     public function setWidth($width)
     {

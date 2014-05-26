@@ -34,7 +34,7 @@ class SocialNetwork extends WebApplication implements HackableInterface
     /**
      * @var array
      */
-    private $communityApplications = array(
+    private $communityApp = array(
         'Happy Farm', 'Poker', 'Nano Farm'
     );
 
@@ -70,17 +70,17 @@ class SocialNetwork extends WebApplication implements HackableInterface
     /**
      * @return array
      */
-    public function getCommunityApplications()
+    public function getCommunityApp()
     {
         return $this->communityApplications;
     }
 
     /**
-     * @param array $communityApplications
+     * @param array $communityApp
      */
-    public function setCommunityApplications($communityApplications)
+    public function setCommunityApp($communityApp)
     {
-        $this->communityApplications = $communityApplications;
+        $this->communityApp = $communityApp;
     }
 
     /**
@@ -108,7 +108,7 @@ class SocialNetwork extends WebApplication implements HackableInterface
         $string .= 'Users info: ' . print_r($this->getUsersInfo(), 1) . PHP_EOL;
         $string .= 'Materials: ' . print_r($this->getMaterials(), 1) . PHP_EOL;
         $string .= 'Available groups: ' . print_r($this->getGroups(), 1) . PHP_EOL;
-        $string .= 'Available applications:' . print_r($this->getCommunityApplications(), 1) . PHP_EOL;
+        $string .= 'Available applications:' . print_r($this->getCommunityApp(), 1) . PHP_EOL;
         $string .= 'User messages:' . print_r($this->getMessages(), 1) . PHP_EOL;
 
         return $string;

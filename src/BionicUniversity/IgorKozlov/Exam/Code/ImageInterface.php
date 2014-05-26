@@ -19,12 +19,14 @@ interface ImageInterface
 
     /**
      * @param $distanceFromCentre
+     *
      * @return mixed
      */
     public function crop($distanceFromCentre);
 
     /**
      * @param $n
+     *
      * @return mixed
      */
     public function resize($n);

@@ -29,7 +29,6 @@ class Image extends AbstractResizer implements ImageInterface
 
     /**
      * @param $height
-     * @param Point $imageCentre
      * @param $width
      */
     public function __construct($height, $width)
@@ -41,6 +40,10 @@ class Image extends AbstractResizer implements ImageInterface
 
     /**
      * Thumb =Crop and Resize
+     * @param $mode
+     * @param $n
+     * @param $distanceFromCentre
+     *
      * @return mixed
      */
     public function thumbnail($mode = "", $n = 2, $distanceFromCentre = 20)
@@ -58,6 +61,7 @@ class Image extends AbstractResizer implements ImageInterface
 
     /**
      * @param $n
+     *
      * @return Image
      */
     public function resize($n)
@@ -71,6 +75,7 @@ class Image extends AbstractResizer implements ImageInterface
 
     /**
      * @param $distanceFromCentre
+     *
      * @return Image
      */
     public function crop($distanceFromCentre)
@@ -131,8 +136,6 @@ class Image extends AbstractResizer implements ImageInterface
     }
 
     /**
-     * @param $width
-     * @param $height
      * @return Point
      */
     protected function getCentre()

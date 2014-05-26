@@ -150,6 +150,7 @@ class Hacker
 
     /**
      * @param $string
+     *
      * @return string
      */
     public function hack($string)
