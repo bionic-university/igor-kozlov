@@ -4,7 +4,7 @@ namespace BionicUniversity\IgorKozlov\HouseOop\Code;
  * Class dwellingHouse
  * @package BionicUniversity\IgorKozlov\HouseOop\Code
  */
-class dwellingHouse extends House
+class DwellingHouse extends House
 {
     /**
      * @var int

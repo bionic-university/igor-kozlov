@@ -2,7 +2,6 @@
 
 namespace BionicUniversity\IgorKozlov\HackerOop\Code\Application;
 
-
 /**
  * Class MaterialsTrait
  * @package BionicUniversity\IgorKozlov\HackerOop\Code\Application
@@ -34,4 +33,4 @@ trait MaterialsTrait
         $this->matirials = $materials;
     }
 
-} 
+}

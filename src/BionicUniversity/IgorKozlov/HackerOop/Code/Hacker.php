@@ -108,7 +108,6 @@ class Hacker
         $this->proficiency = $proficiency;
     }
 
-
     /**
      * @param array $tools
      */

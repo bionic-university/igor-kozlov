@@ -2,7 +2,6 @@
 
 namespace BionicUniversity\IgorKozlov\HackerOop\Code\Application;
 
-
 /**
  * Class SocialNetwork
  * @package BionicUniversity\IgorKozlov\HackerOop\Code\Application
@@ -52,7 +51,6 @@ class SocialNetwork extends WebApplication implements HackableInterface
         $this->setServer($server);
     }
 
-
     /**
      * @return array
      */
@@ -101,7 +99,6 @@ class SocialNetwork extends WebApplication implements HackableInterface
         $this->groupes = $groups;
     }
 
-
     /**
      * @return string
      */
@@ -113,9 +110,9 @@ class SocialNetwork extends WebApplication implements HackableInterface
         $string .= 'Available groups: ' . print_r($this->getGroups(), 1) . PHP_EOL;
         $string .= 'Available applications:' . print_r($this->getCommunityApplications(), 1) . PHP_EOL;
         $string .= 'User messages:' . print_r($this->getMessages(), 1) . PHP_EOL;
+
         return $string;
     }
-
 
     /**
      * @return bool

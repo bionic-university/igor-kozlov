@@ -8,7 +8,6 @@
 
 namespace BionicUniversity\IgorKozlov\Exam\Code;
 
-
 /**
  * Class Image
  * @package BionicUniversity\IgorKozlov\Exam\Code
@@ -48,11 +47,12 @@ class Image extends AbstractResizer implements ImageInterface
     {
         if ('resize' == $mode) {
             $thumbnail = $this->resize($n);
-        } else if ('crop' == $mode) {
+        } elseif ('crop' == $mode) {
             $thumbnail = $this->crop($distanceFromCentre);
         } else {
             $thumbnail = $this->resize($n)->crop($distanceFromCentre);
         }
+
         return $thumbnail;
     }
 
@@ -65,6 +65,7 @@ class Image extends AbstractResizer implements ImageInterface
         $newHeight = $this->getHeight() / $n;
         $newWidth = $this->getWidth() / $n;
         $imageResized = new Image($newHeight, $newWidth);
+
         return $imageResized;
     }
 
@@ -77,6 +78,7 @@ class Image extends AbstractResizer implements ImageInterface
         $newHeight = $this->getCentre($this->getWidth(), $this->getHeight()) + $distanceFromCentre;
         $newWidth = $this->getCentre($this->getWidth(), $this->getHeight()) + $distanceFromCentre;
         $imageCropped = new Image($newHeight, $newWidth);
+
         return $imageCropped;
     }
 
@@ -136,7 +138,8 @@ class Image extends AbstractResizer implements ImageInterface
     protected function getCentre()
     {
         $centre = new Point($this->getWidth() / 2, $this->getHeight() / 2);
+
         return $centre;
     }
 
-} 
+}

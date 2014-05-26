@@ -12,6 +12,7 @@ function read_stdin()
         $input = str_replace("\n", "", $input);
     }
     fclose($inputHandler);
+
     return $input;
 }
 
@@ -29,6 +30,7 @@ function mb_count_chars($input)
             $unique[$char] = 0;
         $unique[$char]++;
     }
+
     return $unique;
 }
 

@@ -12,6 +12,7 @@ function read_stdin()
         $input = str_replace("\n", "", $input);
     }
     fclose($inputHandler);
+
     return $input;
 }
 

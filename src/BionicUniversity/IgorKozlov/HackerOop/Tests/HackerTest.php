@@ -3,7 +3,6 @@
 namespace BionicUniversity\IgorKozlov\HackerOop\Tests;
 
 use BionicUniversity\IgorKozlov\HackerOop\Code\Hacker;
-use Symfony\Component\Finder\Finder;
 
 class HackerTest extends \PHPUnit_Framework_TestCase
 {
@@ -25,4 +24,4 @@ class HackerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($toolsToScan, $hacker->getToolsToScan());
     }
 
-} 
+}

@@ -2,7 +2,6 @@
 
 namespace BionicUniversity\IgorKozlov\HackerOop\Code\Application;
 
-
 /**
  * Class Forum
  * @package BionicUniversity\IgorKozlov\HackerOop\Code\Application
@@ -23,7 +22,6 @@ class Forum extends WebApplication implements HackableInterface
         )
     );
 
-
     /**
      * @param string $url
      * @param string $name
@@ -36,7 +34,6 @@ class Forum extends WebApplication implements HackableInterface
         $this->setName($name);
         $this->setServer($server);
     }
-
 
     /**
      * @return array
@@ -57,11 +54,10 @@ class Forum extends WebApplication implements HackableInterface
     /**
      * @return string
      */
-    function __toString()
+    public function __toString()
     {
-        return (string)($this->value);
+        return (string) ($this->value);
     }
-
 
     /**
      * @return string
@@ -72,9 +68,9 @@ class Forum extends WebApplication implements HackableInterface
         $string .= 'Users info: ' . print_r($this->getUsersInfo(), 1) . PHP_EOL;
         $string .= 'Materials: ' . print_r($this->getMaterials(), 1) . PHP_EOL;
         $string .= 'Available topics: ' . print_r($this->getTopics(), 1) . PHP_EOL;
+
         return $string;
     }
-
 
     /**
      * @return bool

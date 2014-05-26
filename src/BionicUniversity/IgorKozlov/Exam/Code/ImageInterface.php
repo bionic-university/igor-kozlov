@@ -28,4 +28,4 @@ interface ImageInterface
      * @return mixed
      */
     public function resize($n);
-} 
+}

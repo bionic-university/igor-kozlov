@@ -73,4 +73,4 @@ abstract class House
      * @return mixed
      */
     abstract public function makeSomething();
-} 
+}

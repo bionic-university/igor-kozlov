@@ -4,7 +4,7 @@ namespace BionicUniversity\IgorKozlov\HouseOop\Code;
  * Class industrialСomplex
  * @package BionicUniversity\IgorKozlov\HouseOop\Code
  */
-class industrialСomplex extends House
+class Industrial�omplex extends House
 {
     /**
      * @var string

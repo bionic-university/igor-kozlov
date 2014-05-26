@@ -57,7 +57,6 @@ class Hostel extends DwellingHouse
         $this->roommatesCount = $roommatesCount;
     }
 
-
     /**
      * @return string
      */
@@ -74,5 +73,4 @@ class Hostel extends DwellingHouse
         return $this->getFee() * $this->getRoommatesCount();
     }
 
-
-} 
+}

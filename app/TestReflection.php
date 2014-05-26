@@ -13,4 +13,3 @@ $class->getMethod("myProperty")->setAccessible(true);
 
 $public = $class->newInstance();
 echo $public->myProperty();
-?>

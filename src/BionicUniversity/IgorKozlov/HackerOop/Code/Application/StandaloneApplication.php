@@ -1,8 +1,6 @@
 <?php
 
-
 namespace BionicUniversity\IgorKozlov\HackerOop\Code\Application;
-
 
 /**
  * Class StandaloneApplication
