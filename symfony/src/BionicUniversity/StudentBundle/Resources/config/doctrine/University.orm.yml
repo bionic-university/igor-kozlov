@@ -1,0 +1,21 @@
+BionicUniversity\StudentBundle\Entity\University:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        fullName:
+            type: string
+            length: 255
+        shortName:
+            type: string
+            length: '15'
+        accreditationLevel:
+            type: smallint
+        yearOfFoundation:
+            type: datetime
+    lifecycleCallbacks: {  }

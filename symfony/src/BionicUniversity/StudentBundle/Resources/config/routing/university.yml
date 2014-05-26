@@ -1,0 +1,30 @@
+university:
+    pattern:  /
+    defaults: { _controller: "BionicUniversityStudentBundle:University:index" }
+
+university_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BionicUniversityStudentBundle:University:show" }
+
+university_new:
+    pattern:  /new
+    defaults: { _controller: "BionicUniversityStudentBundle:University:new" }
+
+university_create:
+    pattern:  /create
+    defaults: { _controller: "BionicUniversityStudentBundle:University:create" }
+    requirements: { _method: post }
+
+university_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BionicUniversityStudentBundle:University:edit" }
+
+university_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BionicUniversityStudentBundle:University:update" }
+    requirements: { _method: post|put }
+
+university_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BionicUniversityStudentBundle:University:delete" }
+    requirements: { _method: post|delete }
