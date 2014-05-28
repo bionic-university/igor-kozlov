@@ -12,6 +12,7 @@ namespace BionicUniversity\IgorKozlov\HackerOop\Code\Application;
  * Class PublicPage
  * @package BionicUniversity\IgorKozlov\HackerOop\Code\Application
  */
+
 class PublicPage extends WebApplication implements HackableInterface
 {
     use MaterialsTrait;

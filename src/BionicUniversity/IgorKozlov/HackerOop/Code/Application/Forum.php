@@ -6,6 +6,7 @@ namespace BionicUniversity\IgorKozlov\HackerOop\Code\Application;
  * Class Forum
  * @package BionicUniversity\IgorKozlov\HackerOop\Code\Application
  */
+
 class Forum extends WebApplication implements HackableInterface
 {
     use UserTrait;

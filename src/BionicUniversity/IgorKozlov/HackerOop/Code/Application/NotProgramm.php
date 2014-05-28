@@ -13,6 +13,7 @@ namespace BionicUniversity\IgorKozlov\HackerOop\Code\Application;
  * Class NotProgramm
  * @package BionicUniversity\IgorKozlov\HackerOop\Code\Application
  */
+
 class NotProgramm {
 
     /**

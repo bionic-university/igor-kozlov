@@ -1,6 +1,5 @@
 <?php
 require __DIR__ . '/../bootstrap.php';
-use BionicUniversity\IgorKozlov\HouseOop\Code\Hostel;
 
 $dHouse = new BionicUniversity\IgorKozlov\HouseOop\Code\Hostel(12, 5);
 $dHouse->setHeight(10);
@@ -11,5 +10,5 @@ echo "Now" . $dHouse->makeSomething() . PHP_EOL;
 
 echo "complex" . PHP_EOL;
 $complexHostel = new BionicUniversity\IgorKozlov\HouseOop\Code\Hostel(12, 5);
-$complex = new BionicUniversity\IgorKozlov\HouseOop\Code\IndustrialСomplex($complexHostel, 'vehicle', 10, 5);
-echo "Now" . $complex->makeSomething() . PHP_EOL;;
+//$complex = new BionicUniversity\IgorKozlov\HouseOop\Code\IndustrialComplex($complexHostel, 'vehicle');
+//echo "Now" . $complex->makeSomething() . PHP_EOL;;

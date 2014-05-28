@@ -6,6 +6,7 @@ namespace BionicUniversity\IgorKozlov\HackerOop\Code\Application;
  * Class WebApplication
  * @package BionicUniversity\IgorKozlov\HackerOop\Code\Application
  */
+
 class WebApplication extends AbstractApplication
 {
 

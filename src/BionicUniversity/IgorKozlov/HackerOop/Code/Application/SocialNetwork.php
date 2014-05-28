@@ -6,6 +6,7 @@ namespace BionicUniversity\IgorKozlov\HackerOop\Code\Application;
  * Class SocialNetwork
  * @package BionicUniversity\IgorKozlov\HackerOop\Code\Application
  */
+
 class SocialNetwork extends WebApplication implements HackableInterface
 {
     use UserTrait;

@@ -5,6 +5,7 @@ namespace BionicUniversity\IgorKozlov\HouseOop\Code;
  * Class House
  * @package BionicUniversity\IgorKozlov\HouseOop\Code
  */
+
 abstract class House
 {
     /**

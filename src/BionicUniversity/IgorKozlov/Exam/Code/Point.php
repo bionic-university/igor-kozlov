@@ -6,20 +6,21 @@ namespace BionicUniversity\IgorKozlov\Exam\Code;
  * Class Point
  * @package BionicUniversity\IgorKozlov\Exam\Code
  */
+
 class Point
 {
     /**
-     * @var
+     * @var float
      */
     private $xCoord;
     /**
-     * @var
+     * @var float
      */
     private $yCoord;
 
     /**
-     * @param $xCoord
-     * @param $yCoord
+     * @param float $xCoord
+     * @param float $yCoord
      */
     public function __construct($xCoord, $yCoord)
     {
@@ -28,7 +29,7 @@ class Point
     }
 
     /**
-     * @return mixed
+     * @return float
      */
     public function getXCoord()
     {
@@ -36,7 +37,7 @@ class Point
     }
 
     /**
-     * @param mixed $xCoord
+     * @param float $xCoord
      */
     public function setXCoord($xCoord)
     {
@@ -44,7 +45,7 @@ class Point
     }
 
     /**
-     * @return mixed
+     * @return float
      */
     public function getYCoord()
     {
@@ -52,7 +53,7 @@ class Point
     }
 
     /**
-     * @param mixed $yCoord
+     * @param float $yCoord
      */
     public function setYCoord($yCoord)
     {

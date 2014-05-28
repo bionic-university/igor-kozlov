@@ -9,6 +9,7 @@ use BionicUniversity\IgorKozlov\HackerOop\Code\Hacker;
  * Class HackerTest
  * @package BionicUniversity\IgorKozlov\HackerOop\Tests
  */
+
 class HackerTest extends \PHPUnit_Framework_TestCase
 {
     /**
@@ -53,6 +54,29 @@ class HackerTest extends \PHPUnit_Framework_TestCase
         );
         $hacker->setToolsToScan($toolsToScan);
         $this->assertEquals($toolsToScan, $hacker->getToolsToScan());
+    }
+
+    /**
+     * Test getting toolsToHack
+     */
+    public function testGetoolsToHack()
+    {
+        $hacker = new Hacker();
+
+        $this->assertEquals(array('customTool'), $hacker->getToolsToHack());
+    }
+
+    /**
+     * Test setting toolsToHack
+     */
+    public function testSetToolsToHack()
+    {
+        $hacker = new Hacker();
+        $toolsToHack = array(
+            'arachni', 'ARMITAGE'
+        );
+        $hacker->setToolsToHack($toolsToHack);
+        $this->assertEquals($toolsToHack, $hacker->getToolsToHack());
     }
 
     /**

@@ -5,6 +5,7 @@ namespace BionicUniversity\IgorKozlov\Exam\Code;
  * Interface ImageInterface
  * @package BionicUniversity\IgorKozlov\Exam\Code
  */
+
 interface ImageInterface
 {
     /**

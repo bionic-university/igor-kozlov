@@ -2,9 +2,10 @@
 namespace BionicUniversity\IgorKozlov\HouseOop\Code;
 
 /**
- * Class industrialСomplex
+ * Class IndustrialComplex
  * @package BionicUniversity\IgorKozlov\HouseOop\Code
  */
+
 class IndustrialComplex extends House
 {
     /**
@@ -19,10 +20,8 @@ class IndustrialComplex extends House
     /**
      * @param Hostel $hostel
      * @param string $product
-     * @param $fee
-     * @param $roommatesCount
      */
-    public function __construct(Hostel $hostel, $product, $fee, $roommatesCount)
+    public function __construct(Hostel $hostel, $product)
     {
         $this->hostel = $hostel;
         $this->product = $product;
