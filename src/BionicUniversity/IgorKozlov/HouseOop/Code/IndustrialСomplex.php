@@ -5,7 +5,6 @@ namespace BionicUniversity\IgorKozlov\HouseOop\Code;
  * Class IndustrialComplex
  * @package BionicUniversity\IgorKozlov\HouseOop\Code
  */
-
 class IndustrialComplex extends House
 {
     /**

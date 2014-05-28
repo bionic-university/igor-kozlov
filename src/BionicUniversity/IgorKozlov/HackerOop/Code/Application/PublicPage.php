@@ -1,18 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: varrek
- * Date: 02.05.14
- * Time: 16:37
- */
 
 namespace BionicUniversity\IgorKozlov\HackerOop\Code\Application;
 
 /**
  * Class PublicPage
+ *
  * @package BionicUniversity\IgorKozlov\HackerOop\Code\Application
  */
-
 class PublicPage extends WebApplication implements HackableInterface
 {
     use MaterialsTrait;

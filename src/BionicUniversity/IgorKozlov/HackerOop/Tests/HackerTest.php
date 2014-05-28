@@ -9,7 +9,6 @@ use BionicUniversity\IgorKozlov\HackerOop\Code\Hacker;
  * Class HackerTest
  * @package BionicUniversity\IgorKozlov\HackerOop\Tests
  */
-
 class HackerTest extends \PHPUnit_Framework_TestCase
 {
     /**

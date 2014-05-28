@@ -10,9 +10,9 @@ namespace BionicUniversity\IgorKozlov\Exam\Code;
 
 /**
  * Class Image
+ *
  * @package BionicUniversity\IgorKozlov\Exam\Code
  */
-
 class Image extends AbstractResizer implements ImageInterface
 {
     /**

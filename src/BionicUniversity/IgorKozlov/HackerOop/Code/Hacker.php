@@ -1,7 +1,9 @@
 <?php
 namespace BionicUniversity\IgorKozlov\HackerOop\Code;
+
 /**
  * Class Hacker
+ *
  * @package BionicUniversity\IgorKozlov\HackerOop\Code
  */
 class Hacker

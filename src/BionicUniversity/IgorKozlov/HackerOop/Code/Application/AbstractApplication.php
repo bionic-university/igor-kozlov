@@ -6,7 +6,6 @@ namespace BionicUniversity\IgorKozlov\HackerOop\Code\Application;
  * Class AbstractApplication
  * @package BionicUniversity\IgorKozlov\HackerOop\Code\Application
  */
-
 abstract class AbstractApplication
 {
     /**

@@ -6,7 +6,6 @@ namespace BionicUniversity\IgorKozlov\HackerOop\Code\Application;
  * Class Emails
  * @package BionicUniversity\IgorKozlov\HackerOop\Code\Application
  */
-
 class Emails extends WebApplication implements HackableInterface
 {
     /**

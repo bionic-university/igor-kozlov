@@ -5,7 +5,6 @@ namespace BionicUniversity\IgorKozlov\HouseOop\Code;
  * Class Hostel
  * @package BionicUniversity\IgorKozlov\HouseOop\Code
  */
-
 class Hostel extends DwellingHouse
 {
     /**
@@ -19,7 +18,7 @@ class Hostel extends DwellingHouse
 
     /**
      * @param float $fee
-     * @param int $roommatesCount
+     * @param int   $roommatesCount
      */
     public function __construct($fee, $roommatesCount)
     {
