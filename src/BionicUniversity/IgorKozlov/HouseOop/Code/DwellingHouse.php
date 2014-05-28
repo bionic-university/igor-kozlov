@@ -1,5 +1,6 @@
 <?php
 namespace BionicUniversity\IgorKozlov\HouseOop\Code;
+
 /**
  * Class dwellingHouse
  * @package BionicUniversity\IgorKozlov\HouseOop\Code
@@ -16,8 +17,8 @@ class DwellingHouse extends House
     protected $roomCount;
 
     /**
-     * @param $numberOfOccupants
-     * @param $roomCount
+     * @param int $numberOfOccupants
+     * @param int $roomCount
      */
     public function __construct($numberOfOccupants, $roomCount)
     {
@@ -26,7 +27,7 @@ class DwellingHouse extends House
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getNumberOfOccupants()
     {
@@ -34,7 +35,7 @@ class DwellingHouse extends House
     }
 
     /**
-     * @param mixed $numberOfOccupants
+     * @param int $numberOfOccupants
      */
     public function setNumberOfOccupants($numberOfOccupants)
     {
@@ -42,7 +43,7 @@ class DwellingHouse extends House
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getRoomCount()
     {
@@ -50,7 +51,7 @@ class DwellingHouse extends House
     }
 
     /**
-     * @param mixed $roomCount
+     * @param int $roomCount
      */
     public function setRoomCount($roomCount)
     {

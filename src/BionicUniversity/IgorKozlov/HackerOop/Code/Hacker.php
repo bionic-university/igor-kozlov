@@ -157,8 +157,8 @@ class Hacker
     {
         $result = "";
         if (class_exists('BionicUniversity\\IgorKozlov\\HackerOop\\Code\\Application\\' . $string)) {
-            $a = 'BionicUniversity\IgorKozlov\HackerOop\Code\Application\\' . $string;
-            $object = new $a;
+            $name = 'BionicUniversity\IgorKozlov\HackerOop\Code\Application\\' . $string;
+            $object = new $name;
             $myReflection = new \ReflectionClass($object);
             if ($myReflection->isSubclassOf('BionicUniversity\IgorKozlov\HackerOop\Code\Application\AbstractApplication')) {
                 if ($object->isHackable()) {

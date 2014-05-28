@@ -1,5 +1,6 @@
 <?php
 namespace BionicUniversity\IgorKozlov\HouseOop\Code;
+
 /**
  * Class Hostel
  * @package BionicUniversity\IgorKozlov\HouseOop\Code
@@ -16,8 +17,8 @@ class Hostel extends DwellingHouse
     protected $roommatesCount;
 
     /**
-     * @param $fee
-     * @param $roommatesCount
+     * @param float $fee
+     * @param int $roommatesCount
      */
     public function __construct($fee, $roommatesCount)
     {
@@ -26,7 +27,7 @@ class Hostel extends DwellingHouse
     }
 
     /**
-     * @return mixed
+     * @return float
      */
     public function getFee()
     {
@@ -34,7 +35,7 @@ class Hostel extends DwellingHouse
     }
 
     /**
-     * @param mixed $fee
+     * @param float $fee
      */
     public function setFee($fee)
     {
@@ -42,7 +43,7 @@ class Hostel extends DwellingHouse
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getRoommatesCount()
     {
@@ -50,7 +51,7 @@ class Hostel extends DwellingHouse
     }
 
     /**
-     * @param mixed $roommatesCount
+     * @param int $roommatesCount
      */
     public function setRoommatesCount($roommatesCount)
     {

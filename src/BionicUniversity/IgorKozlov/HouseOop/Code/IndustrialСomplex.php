@@ -1,5 +1,6 @@
 <?php
 namespace BionicUniversity\IgorKozlov\HouseOop\Code;
+
 /**
  * Class industrialСomplex
  * @package BionicUniversity\IgorKozlov\HouseOop\Code
@@ -44,7 +45,7 @@ class IndustrialComplex extends House
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getProduct()
     {
@@ -52,7 +53,7 @@ class IndustrialComplex extends House
     }
 
     /**
-     * @param mixed $product
+     * @param string $product
      */
     public function setProduct($product)
     {
@@ -60,7 +61,7 @@ class IndustrialComplex extends House
     }
 
     /**
-     *@return string
+     * @return string
      */
     public function makeSomething()
     {

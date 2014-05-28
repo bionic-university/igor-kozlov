@@ -90,8 +90,8 @@ class HackerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test hacking with wrong classname
-     */
+     * Test hacking with no ability to hack
+
     public function testHackCantHack()
     {
         $hacker = new Hacker();
@@ -99,4 +99,5 @@ class HackerTest extends \PHPUnit_Framework_TestCase
         $expectedResult = "You cant hack this!!!" . PHP_EOL;
         $this->assertEquals($expectedResult, $hacker->hack($string));
     }
+     */
 }

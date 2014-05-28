@@ -25,9 +25,9 @@ interface ImageInterface
     public function crop($distanceFromCentre);
 
     /**
-     * @param $n
+     * @param $dimension
      *
      * @return mixed
      */
-    public function resize($n);
+    public function resize($dimension);
 }

@@ -15,21 +15,21 @@ namespace BionicUniversity\IgorKozlov\Exam\Code;
 class Image extends AbstractResizer implements ImageInterface
 {
     /**
-     * @var
+     * @var float
      */
     private $height;
     /**
-     * @var
+     * @var float
      */
     private $width;
     /**
-     * @var
+     * @var float
      */
     private $imageFirstCoord;
 
     /**
-     * @param $height
-     * @param $width
+     * @param float $height
+     * @param float $width
      */
     public function __construct($height, $width)
     {
@@ -46,28 +46,28 @@ class Image extends AbstractResizer implements ImageInterface
      *
      * @return mixed
      */
-    public function thumbnail($mode = "", $n = 2, $distanceFromCentre = 20)
+    public function thumbnail($mode = "", $dimension = 2, $distanceFromCentre = 20)
     {
         if ('resize' == $mode) {
-            $thumbnail = $this->resize($n);
+            $thumbnail = $this->resize($dimension);
         } elseif ('crop' == $mode) {
             $thumbnail = $this->crop($distanceFromCentre);
         } else {
-            $thumbnail = $this->resize($n)->crop($distanceFromCentre);
+            $thumbnail = $this->resize($dimension)->crop($distanceFromCentre);
         }
 
         return $thumbnail;
     }
 
     /**
-     * @param $n
+     * @param $dimension
      *
      * @return Image
      */
-    public function resize($n)
+    public function resize($dimension)
     {
-        $newHeight = $this->getHeight() / $n;
-        $newWidth = $this->getWidth() / $n;
+        $newHeight = $this->getHeight() / $dimension;
+        $newWidth = $this->getWidth() / $dimension;
         $imageResized = new Image($newHeight, $newWidth);
 
         return $imageResized;
@@ -88,7 +88,7 @@ class Image extends AbstractResizer implements ImageInterface
     }
 
     /**
-     * @return mixed
+     * @return float
      */
     public function getHeight()
     {
@@ -96,7 +96,7 @@ class Image extends AbstractResizer implements ImageInterface
     }
 
     /**
-     * @param mixed $height
+     * @param float $height
      */
     public function setHeight($height)
     {
@@ -104,7 +104,7 @@ class Image extends AbstractResizer implements ImageInterface
     }
 
     /**
-     * @return mixed
+     * @return float
      */
     public function getImageFirstCoord()
     {
@@ -112,7 +112,7 @@ class Image extends AbstractResizer implements ImageInterface
     }
 
     /**
-     * @param mixed $imageCentre
+     * @param float $imageCentre
      */
     public function setImageFirstCoord($imageCentre)
     {
@@ -120,7 +120,7 @@ class Image extends AbstractResizer implements ImageInterface
     }
 
     /**
-     * @return mixed
+     * @return float
      */
     public function getWidth()
     {
@@ -128,7 +128,7 @@ class Image extends AbstractResizer implements ImageInterface
     }
 
     /**
-     * @param mixed $width
+     * @param float $width
      */
     public function setWidth($width)
     {
