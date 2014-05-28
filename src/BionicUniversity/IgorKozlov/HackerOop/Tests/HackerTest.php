@@ -100,10 +100,19 @@ class HackerTest extends \PHPUnit_Framework_TestCase
         $expectedResult = 'You cant hack this!!!' . PHP_EOL;
         $this->assertEquals($expectedResult, $hacker->hack($string));
     }
-
     /**
- * Test hacking with cool proficiency
- */
+     * Test hacking with no ability to hack
+     */
+    public function testHackNotProgramm()
+    {
+        $hacker = new Hacker();
+        $string = 'NotProgramm';
+        $expectedResult = "This class is not a program!!!" . PHP_EOL;
+        $this->assertEquals($expectedResult, $hacker->hack($string));
+    }
+    /**
+    * Test hacking with cool proficiency
+    */
     public function testHackSuccess()
     {
         $hacker = new Hacker();
