@@ -18,4 +18,11 @@ BionicUniversity\StudentBundle\Entity\University:
             type: smallint
         yearOfFoundation:
             type: datetime
+
+    oneToMany:
+         faculties:
+            targetEntity: BionicUniversity\StudentBundle\Entity\Faculty
+            mappedBy: university
+
+
     lifecycleCallbacks: {  }

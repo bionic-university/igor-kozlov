@@ -2,6 +2,7 @@
 
 namespace BionicUniversity\StudentBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * University
@@ -32,12 +33,15 @@ class University
      * @var \DateTime
      */
     private $yearOfFoundation;
-
+    /*
+     * @var ArrayCollection
+     */
+    private $faculties;
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -61,7 +65,7 @@ class University
     /**
      * Get fullName
      *
-     * @return string 
+     * @return string
      */
     public function getFullName()
     {
@@ -85,7 +89,7 @@ class University
     /**
      * Get shortName
      *
-     * @return string 
+     * @return string
      */
     public function getShortName()
     {
@@ -109,7 +113,7 @@ class University
     /**
      * Get accreditationLevel
      *
-     * @return integer 
+     * @return integer
      */
     public function getAccreditationLevel()
     {
@@ -133,10 +137,28 @@ class University
     /**
      * Get yearOfFoundation
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getYearOfFoundation()
     {
         return $this->yearOfFoundation;
     }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getFaculties()
+    {
+        return $this->faculties;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getShortName();
+    }
+
+
 }

@@ -1,0 +1,30 @@
+cafedra:
+    pattern:  /
+    defaults: { _controller: "BionicUniversityStudentBundle:Cafedra:index" }
+
+cafedra_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BionicUniversityStudentBundle:Cafedra:show" }
+
+cafedra_new:
+    pattern:  /new
+    defaults: { _controller: "BionicUniversityStudentBundle:Cafedra:new" }
+
+cafedra_create:
+    pattern:  /create
+    defaults: { _controller: "BionicUniversityStudentBundle:Cafedra:create" }
+    requirements: { _method: post }
+
+cafedra_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BionicUniversityStudentBundle:Cafedra:edit" }
+
+cafedra_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BionicUniversityStudentBundle:Cafedra:update" }
+    requirements: { _method: post|put }
+
+cafedra_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BionicUniversityStudentBundle:Cafedra:delete" }
+    requirements: { _method: post|delete }

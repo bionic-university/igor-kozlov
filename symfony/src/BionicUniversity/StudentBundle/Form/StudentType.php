@@ -6,29 +6,29 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class UniversityType extends AbstractType
+class StudentType extends AbstractType
 {
-    /**
+        /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fullName')
-            ->add('shortName')
-            ->add('accreditationLevel')
-            ->add('yearOfFoundation')
-            ->add('faculties');
+            ->add('firstName')
+            ->add('lastName')
+            ->add('email')
+            ->add('cafedra')
+        ;
     }
-
+    
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'BionicUniversity\StudentBundle\Entity\University'
+            'data_class' => 'BionicUniversity\StudentBundle\Entity\Student'
         ));
     }
 
@@ -37,6 +37,6 @@ class UniversityType extends AbstractType
      */
     public function getName()
     {
-        return 'bionicuniversity_studentbundle_university';
+        return 'bionicuniversity_studentbundle_student';
     }
 }

@@ -6,3 +6,17 @@ bionic_university_student_university:
     resource: "@BionicUniversityStudentBundle/Resources/config/routing/university.yml"
     prefix:   /university
 
+bionic_university_student_faculty:
+    resource: "@BionicUniversityStudentBundle/Resources/config/routing/faculty.yml"
+    prefix:   /faculty
+
+bionic_university_student_cafedra:
+    resource: "@BionicUniversityStudentBundle/Resources/config/routing/cafedra.yml"
+    prefix:   /cafedra
+
+bionic_university_student_student:
+    resource: "@BionicUniversityStudentBundle/Resources/config/routing/student.yml"
+    prefix:   /student
+
+
+

@@ -100,6 +100,7 @@ class HackerTest extends \PHPUnit_Framework_TestCase
         $expectedResult = 'You cant hack this!!!' . PHP_EOL;
         $this->assertEquals($expectedResult, $hacker->hack($string));
     }
+
     /**
      * Test hacking with no ability to hack
      */
@@ -110,15 +111,16 @@ class HackerTest extends \PHPUnit_Framework_TestCase
         $expectedResult = "This class is not a program!!!" . PHP_EOL;
         $this->assertEquals($expectedResult, $hacker->hack($string));
     }
+
     /**
-    * Test hacking with cool proficiency
-    */
+     * Test hacking with cool proficiency
+     */
     public function testHackSuccess()
     {
         $hacker = new Hacker();
         $hacker->setProficiency(20);
         $string = 'SocialNetwork';
-        $socNetwork= new SocialNetwork();
+        $socNetwork = new SocialNetwork();
         $expectedResult = "Hacked!" . PHP_EOL;
         $expectedResult .= $socNetwork->giveInformation();
         $this->assertEquals($expectedResult, $hacker->hack($string));

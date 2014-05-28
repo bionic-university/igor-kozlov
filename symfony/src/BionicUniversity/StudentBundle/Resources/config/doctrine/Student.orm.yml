@@ -1,0 +1,26 @@
+BionicUniversity\StudentBundle\Entity\Student:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        firstName:
+            type: string
+            length: 255
+        lastName:
+            type: string
+            length: 255
+        email:
+            type: string
+            unique: true
+
+    manyToOne:
+        cafedra:
+             targetEntity: BionicUniversity\StudentBundle\Entity\Cafedra
+             inversedBy: students
+
+    lifecycleCallbacks: {  }

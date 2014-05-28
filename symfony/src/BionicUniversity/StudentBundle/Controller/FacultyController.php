@@ -5,38 +5,38 @@ namespace BionicUniversity\StudentBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use BionicUniversity\StudentBundle\Entity\University;
-use BionicUniversity\StudentBundle\Form\UniversityType;
+use BionicUniversity\StudentBundle\Entity\Faculty;
+use BionicUniversity\StudentBundle\Form\FacultyType;
 
 /**
- * University controller.
+ * Faculty controller.
  *
  */
-class UniversityController extends Controller
+class FacultyController extends Controller
 {
 
     /**
-     * Lists all University entities.
+     * Lists all Faculty entities.
      *
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('BionicUniversityStudentBundle:University')->findAll();
+        $entities = $em->getRepository('BionicUniversityStudentBundle:Faculty')->findAll();
 
-        return $this->render('BionicUniversityStudentBundle:University:index.html.twig', array(
+        return $this->render('BionicUniversityStudentBundle:Faculty:index.html.twig', array(
             'entities' => $entities,
         ));
     }
 
     /**
-     * Creates a new University entity.
+     * Creates a new Faculty entity.
      *
      */
     public function createAction(Request $request)
     {
-        $entity = new University();
+        $entity = new Faculty();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -45,26 +45,26 @@ class UniversityController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('university_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('faculty_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('BionicUniversityStudentBundle:University:new.html.twig', array(
+        return $this->render('BionicUniversityStudentBundle:Faculty:new.html.twig', array(
             'entity' => $entity,
             'form' => $form->createView(),
         ));
     }
 
     /**
-     * Creates a form to create a University entity.
+     * Creates a form to create a Faculty entity.
      *
-     * @param University $entity The entity
+     * @param Faculty $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(University $entity)
+    private function createCreateForm(Faculty $entity)
     {
-        $form = $this->createForm(new UniversityType(), $entity, array(
-            'action' => $this->generateUrl('university_create'),
+        $form = $this->createForm(new FacultyType(), $entity, array(
+            'action' => $this->generateUrl('faculty_create'),
             'method' => 'POST',
         ));
 
@@ -74,59 +74,59 @@ class UniversityController extends Controller
     }
 
     /**
-     * Displays a form to create a new University entity.
+     * Displays a form to create a new Faculty entity.
      *
      */
     public function newAction()
     {
-        $entity = new University();
+        $entity = new Faculty();
         $form = $this->createCreateForm($entity);
 
-        return $this->render('BionicUniversityStudentBundle:University:new.html.twig', array(
+        return $this->render('BionicUniversityStudentBundle:Faculty:new.html.twig', array(
             'entity' => $entity,
             'form' => $form->createView(),
         ));
     }
 
     /**
-     * Finds and displays a University entity.
+     * Finds and displays a Faculty entity.
      *
      */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BionicUniversityStudentBundle:University')->find($id);
+        $entity = $em->getRepository('BionicUniversityStudentBundle:Faculty')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find University entity.');
+            throw $this->createNotFoundException('Unable to find Faculty entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BionicUniversityStudentBundle:University:show.html.twig', array(
+        return $this->render('BionicUniversityStudentBundle:Faculty:show.html.twig', array(
             'entity' => $entity,
             'delete_form' => $deleteForm->createView(),));
     }
 
     /**
-     * Displays a form to edit an existing University entity.
+     * Displays a form to edit an existing Faculty entity.
      *
      */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BionicUniversityStudentBundle:University')->find($id);
+        $entity = $em->getRepository('BionicUniversityStudentBundle:Faculty')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find University entity.');
+            throw $this->createNotFoundException('Unable to find Faculty entity.');
         }
 
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BionicUniversityStudentBundle:University:edit.html.twig', array(
+        return $this->render('BionicUniversityStudentBundle:Faculty:edit.html.twig', array(
             'entity' => $entity,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -134,16 +134,16 @@ class UniversityController extends Controller
     }
 
     /**
-     * Creates a form to edit a University entity.
+     * Creates a form to edit a Faculty entity.
      *
-     * @param University $entity The entity
+     * @param Faculty $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createEditForm(University $entity)
+    private function createEditForm(Faculty $entity)
     {
-        $form = $this->createForm(new UniversityType(), $entity, array(
-            'action' => $this->generateUrl('university_update', array('id' => $entity->getId())),
+        $form = $this->createForm(new FacultyType(), $entity, array(
+            'action' => $this->generateUrl('faculty_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -153,17 +153,17 @@ class UniversityController extends Controller
     }
 
     /**
-     * Edits an existing University entity.
+     * Edits an existing Faculty entity.
      *
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BionicUniversityStudentBundle:University')->find($id);
+        $entity = $em->getRepository('BionicUniversityStudentBundle:Faculty')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find University entity.');
+            throw $this->createNotFoundException('Unable to find Faculty entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -173,10 +173,10 @@ class UniversityController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('university_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('faculty_edit', array('id' => $id)));
         }
 
-        return $this->render('BionicUniversityStudentBundle:University:edit.html.twig', array(
+        return $this->render('BionicUniversityStudentBundle:Faculty:edit.html.twig', array(
             'entity' => $entity,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -184,7 +184,7 @@ class UniversityController extends Controller
     }
 
     /**
-     * Deletes a University entity.
+     * Deletes a Faculty entity.
      *
      */
     public function deleteAction(Request $request, $id)
@@ -194,21 +194,21 @@ class UniversityController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('BionicUniversityStudentBundle:University')->find($id);
+            $entity = $em->getRepository('BionicUniversityStudentBundle:Faculty')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find University entity.');
+                throw $this->createNotFoundException('Unable to find Faculty entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('university'));
+        return $this->redirect($this->generateUrl('faculty'));
     }
 
     /**
-     * Creates a form to delete a University entity by id.
+     * Creates a form to delete a Faculty entity by id.
      *
      * @param mixed $id The entity id
      *
@@ -217,7 +217,7 @@ class UniversityController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('university_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('faculty_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm();
