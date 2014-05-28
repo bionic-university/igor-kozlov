@@ -4,6 +4,7 @@ namespace BionicUniversity\IgorKozlov\HackerOop\Code\Application;
 
 /**
  * Class StandaloneApplication
+ *
  * @package BionicUniversity\IgorKozlov\HackerOop\Code\Application
  */
 class StandaloneApplication extends AbstractApplication implements HackableInterface

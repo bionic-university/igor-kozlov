@@ -4,6 +4,7 @@ namespace BionicUniversity\IgorKozlov\Exam\Code;
 
 /**
  * Class Point
+ *
  * @package BionicUniversity\IgorKozlov\Exam\Code
  */
 class Point

@@ -3,6 +3,7 @@ namespace BionicUniversity\IgorKozlov\HouseOop\Code;
 
 /**
  * Class Hostel
+ *
  * @package BionicUniversity\IgorKozlov\HouseOop\Code
  */
 class Hostel extends DwellingHouse

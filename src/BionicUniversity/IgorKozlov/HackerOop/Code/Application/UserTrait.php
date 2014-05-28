@@ -4,6 +4,7 @@ namespace BionicUniversity\IgorKozlov\HackerOop\Code\Application;
 
 /**
  * Class UserTrait
+ *
  * @package BionicUniversity\IgorKozlov\HackerOop\Code\Application
  */
 trait UserTrait
