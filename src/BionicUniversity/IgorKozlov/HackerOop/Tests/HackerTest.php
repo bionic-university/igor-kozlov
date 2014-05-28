@@ -2,6 +2,7 @@
 
 namespace BionicUniversity\IgorKozlov\HackerOop\Tests;
 
+use BionicUniversity\IgorKozlov\HackerOop\Code\Application\SocialNetwork;
 use BionicUniversity\IgorKozlov\HackerOop\Code\Hacker;
 
 /**
@@ -91,13 +92,39 @@ class HackerTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Test hacking with no ability to hack
-
+     */
     public function testHackCantHack()
     {
         $hacker = new Hacker();
-        $string = "Emails";
-        $expectedResult = "You cant hack this!!!" . PHP_EOL;
+        $string = 'Emails';
+        $expectedResult = 'You cant hack this!!!' . PHP_EOL;
         $this->assertEquals($expectedResult, $hacker->hack($string));
     }
+
+    /**
+ * Test hacking with cool proficiency
+ */
+    public function testHackSuccess()
+    {
+        $hacker = new Hacker();
+        $hacker->setProficiency(20);
+        $string = 'SocialNetwork';
+        $socNetwork= new SocialNetwork();
+        $expectedResult = "Hacked!" . PHP_EOL;
+        $expectedResult .= $socNetwork->giveInformation();
+        $this->assertEquals($expectedResult, $hacker->hack($string));
+    }
+
+    /**
+     * Test hacking with bad proficiency
      */
+    public function testHackFailure()
+    {
+        $hacker = new Hacker();
+        $hacker->setProficiency(-10);
+        $string = 'SocialNetwork';;
+        $expectedResult = "Not hacked!" . PHP_EOL;
+        $this->assertEquals($expectedResult, $hacker->hack($string));
+    }
+
 }

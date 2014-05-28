@@ -171,7 +171,7 @@ class Hacker
                         $result = "Not hacked!" . PHP_EOL;
                     }
                 } else {
-                    echo "You cant hack this!!!" . PHP_EOL;
+                    $result = "You cant hack this!!!" . PHP_EOL;
                 }
             } else {
                 $result = "This class is not a program!!!" . PHP_EOL;

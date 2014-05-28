@@ -72,7 +72,7 @@ class SocialNetwork extends WebApplication implements HackableInterface
      */
     public function getCommunityApp()
     {
-        return $this->communityApplications;
+        return $this->communityApp;
     }
 
     /**
