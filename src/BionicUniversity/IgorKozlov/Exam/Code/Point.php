@@ -11,52 +11,52 @@ class Point
     /**
      * @var
      */
-    private $x;
+    private $xCoord;
     /**
      * @var
      */
-    private $y;
+    private $yCoord;
 
     /**
-     * @param $x
-     * @param $y
+     * @param $xCoord
+     * @param $yCoord
      */
-    public function __construct($x, $y)
+    public function __construct($xCoord, $yCoord)
     {
-        $this->x = $x;
-        $this->y = $y;
+        $this->xCoord = $xCoord;
+        $this->yCoord = $yCoord;
     }
 
     /**
      * @return mixed
      */
-    public function getX()
+    public function getXCoord()
     {
-        return $this->x;
+        return $this->xCoord;
     }
 
     /**
-     * @param mixed $x
+     * @param mixed $xCoord
      */
-    public function setX($x)
+    public function setXCoord($xCoord)
     {
-        $this->x = $x;
+        $this->xCoord = $xCoord;
     }
 
     /**
      * @return mixed
      */
-    public function getY()
+    public function getYCoord()
     {
-        return $this->y;
+        return $this->yCoord;
     }
 
     /**
-     * @param mixed $y
+     * @param mixed $yCoord
      */
-    public function setY($y)
+    public function setYCoord($yCoord)
     {
-        $this->y = $y;
+        $this->yCoord = $yCoord;
     }
 
 }

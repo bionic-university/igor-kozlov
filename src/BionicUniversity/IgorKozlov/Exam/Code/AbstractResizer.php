@@ -10,6 +10,7 @@ abstract class AbstractResizer
 {
     /**
      * @param $mode
+     *
      * @return mixed
      */
     abstract public function thumbnail($mode);
