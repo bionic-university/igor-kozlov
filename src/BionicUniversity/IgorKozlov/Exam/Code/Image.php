@@ -81,8 +81,8 @@ class Image extends AbstractResizer implements ImageInterface
      */
     public function crop($distanceFromCentre)
     {
-        $newHeight = $this->getCentre($this->getWidth(), $this->getHeight()) + $distanceFromCentre;
-        $newWidth = $this->getCentre($this->getWidth(), $this->getHeight()) + $distanceFromCentre;
+        $newHeight = $this->getCentre()->getYCoord() + $distanceFromCentre;
+        $newWidth = $this->getCentre()->getXCoord() + $distanceFromCentre;
         $imageCropped = new Image($newHeight, $newWidth);
 
         return $imageCropped;
