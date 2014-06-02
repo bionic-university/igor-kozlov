@@ -6,7 +6,7 @@ use BionicUniversity\IgorKozlov\Exam\Code\Point;
 
 /**
  * Class ImageTest
- * 
+ *
  * @package BionicUniversity\IgorKozlov\Exam\Tests
  */
 class ImageTest extends \PHPUnit_Framework_TestCase
@@ -29,6 +29,27 @@ class ImageTest extends \PHPUnit_Framework_TestCase
         $newHeight = 1.2;
         $image->setHeight($newHeight);
         $this->assertEquals($newHeight, $image->getHeight());
+    }
+
+    /**
+     * Test getting ImageFirstCoord
+     */
+    public function testGetImageFirstCoord()
+    {
+        $image = new Image(2, 2);
+        $expextedResult = new Point (0, 0);
+        $this->assertEquals($expextedResult, $image->getImageFirstCoord());
+    }
+
+    /**
+     * Test setting ImageFirstCoord
+     */
+    public function testSetImageFirstCoord()
+    {
+        $image = new Image(2, 2);
+        $expextedResult = new Point (2, 3);
+        $image->setImageFirstCoord($expextedResult);
+        $this->assertEquals($expextedResult, $image->getImageFirstCoord());
     }
 
     /**
@@ -59,9 +80,9 @@ class ImageTest extends \PHPUnit_Framework_TestCase
         $image = new Image(4, 4);
         $centrePoint = new Point(2, 2);
         $myReflection = new \ReflectionClass($image);
-        $reflection_method = $myReflection->getMethod("getCentre");
-        $reflection_method->setAccessible(true);
-        $result = $reflection_method->invoke($image, NULL);
+        $reflectionMethod = $myReflection->getMethod("getCentre");
+        $reflectionMethod->setAccessible(true);
+        $result = $reflectionMethod->invoke($image, null);
         $this->assertEquals($centrePoint, $result);
     }
 
