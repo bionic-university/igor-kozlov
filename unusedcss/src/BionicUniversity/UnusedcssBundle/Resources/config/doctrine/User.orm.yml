@@ -15,6 +15,13 @@ BionicUniversity\UnusedcssBundle\Entity\User:
             type: string
             length: 255
         email:
+            unique: true
             type: string
             length: 255
+
+    oneToMany:
+             tests:
+                targetEntity: BionicUniversity\UnusedcssBundle\Entity\TestResult
+                mappedBy: user
+
     lifecycleCallbacks: {  }

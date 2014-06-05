@@ -1,0 +1,22 @@
+BionicUniversity\UnusedcssBundle\Entity\Link:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        link:
+            unique: true
+            type: string
+            length: 255
+        validationResult:
+            type: text
+
+    manyToOne:
+            test:
+                 targetEntity: BionicUniversity\UnusedcssBundle\Entity\TestResult
+                 inversedBy: links
+    lifecycleCallbacks: {  }

@@ -1,0 +1,27 @@
+BionicUniversity\UnusedcssBundle\Entity\TestResult:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        cssOnPage:
+            type: text
+        cssInStylesheet:
+            type: text
+        unusedCSS:
+            type: text
+
+    manyToOne:
+              user:
+                targetEntity: BionicUniversity\UnusedcssBundle\Entity\User
+                inversedBy: tests
+
+    oneToMany:
+              links:
+                targetEntity: BionicUniversity\UnusedcssBundle\Entity\Link
+                mappedBy: links
+    lifecycleCallbacks: {  }

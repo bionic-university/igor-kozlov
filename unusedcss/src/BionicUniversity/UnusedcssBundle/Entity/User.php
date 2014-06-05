@@ -3,6 +3,7 @@
 namespace BionicUniversity\UnusedcssBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * User
@@ -29,11 +30,31 @@ class User
      */
     private $email;
 
+    /*
+    * @var ArrayCollection
+    */
+    private $tests;
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getTests()
+    {
+        return $this->tests;
+    }
+
+    /**
+     * @param ArrayCollection $tests
+     */
+    public function setTests($tests)
+    {
+        $this->tests = $tests;
+    }
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -51,12 +72,13 @@ class User
         $this->username = $username;
 
         return $this;
+
     }
 
     /**
      * Get username
      *
-     * @return string 
+     * @return string
      */
     public function getUsername()
     {
@@ -79,7 +101,7 @@ class User
     /**
      * Get password
      *
-     * @return string 
+     * @return string
      */
     public function getPassword()
     {
@@ -102,7 +124,7 @@ class User
     /**
      * Get email
      *
-     * @return string 
+     * @return string
      */
     public function getEmail()
     {
