@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0f5bf28fac35560dbdb2e597d32df056",
+    "hash": "95efdcd30eca45d40e91e5b8d8f4fe36",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -554,16 +554,16 @@
         },
         {
             "name": "doctrine/orm",
-            "version": "v2.4.2",
+            "version": "v2.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "0363a5548d9263f979f9ca149decb9cfc66419ab"
+                "reference": "8a13376d42b5ea467727ffe730aa0e14ca3c5e29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/0363a5548d9263f979f9ca149decb9cfc66419ab",
-                "reference": "0363a5548d9263f979f9ca149decb9cfc66419ab",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/8a13376d42b5ea467727ffe730aa0e14ca3c5e29",
+                "reference": "8a13376d42b5ea467727ffe730aa0e14ca3c5e29",
                 "shasum": ""
             },
             "require": {
@@ -626,7 +626,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2014-02-08 16:35:09"
+            "time": "2014-06-10 11:49:08"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -909,17 +909,17 @@
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "v3.0.0",
+            "version": "v3.0.1",
             "target-dir": "Sensio/Bundle/DistributionBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "d7ad610b9667ed33ade22484023552eb75372a44"
+                "reference": "e9caa300faf95076c8e27693f3fdb0bb6e3148c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/d7ad610b9667ed33ade22484023552eb75372a44",
-                "reference": "d7ad610b9667ed33ade22484023552eb75372a44",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/e9caa300faf95076c8e27693f3fdb0bb6e3148c0",
+                "reference": "e9caa300faf95076c8e27693f3fdb0bb6e3148c0",
                 "shasum": ""
             },
             "require": {
@@ -964,7 +964,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2014-05-10 12:31:39"
+            "time": "2014-06-06 02:53:20"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -1139,6 +1139,61 @@
                 "minification"
             ],
             "time": "2013-05-16 05:32:23"
+        },
+        {
+            "name": "symfony/dom-crawler",
+            "version": "2.3.x-dev",
+            "target-dir": "Symfony/Component/DomCrawler",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/DomCrawler.git",
+                "reference": "eae2622b5609cb5d4f378b6fe65e4a61791aa2af"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/DomCrawler/zipball/eae2622b5609cb5d4f378b6fe65e4a61791aa2af",
+                "reference": "eae2622b5609cb5d4f378b6fe65e4a61791aa2af",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "symfony/css-selector": "~2.0"
+            },
+            "suggest": {
+                "symfony/css-selector": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\DomCrawler\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony DomCrawler Component",
+            "homepage": "http://symfony.com",
+            "time": "2014-06-06 05:27:49"
         },
         {
             "name": "symfony/icu",
@@ -1585,9 +1640,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "symfony/dom-crawler": 20
+    },
     "platform": {
         "php": ">=5.3.3"
     },

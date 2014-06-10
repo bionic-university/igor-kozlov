@@ -1,7 +1,9 @@
 parameters:
-#    bionic_university_unusedcss.example.class: BionicUniversity\UnusedcssBundle\Example
+    bionic_university_unusedcss.urlCrawler.class: BionicUniversity\UnusedcssBundle\Services\UrlCrawlerService
 
 services:
-#    bionic_university_unusedcss.example:
-#        class: %bionic_university_unusedcss.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    bionic_university_unusedcss.agregator:
+       class: %bionic_university_unusedcss.urlCrawler.class%
+        arguments: [%site_url%]
+        calls:
+           [setEm, @doctrine.orm.default_entity_manager]

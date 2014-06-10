@@ -40,6 +40,12 @@ class TestResult
      */
     private $links;
 
+    public function __construct()
+    {
+        $this->links = new ArrayCollection();
+    }
+
+
     /**
      * @return ArrayCollection
      */
@@ -48,13 +54,6 @@ class TestResult
         return $this->links;
     }
 
-    /**
-     * @param ArrayCollection $links
-     */
-    public function setLinks($links)
-    {
-        $this->links = $links;
-    }
 
     /**
      * @return User
