@@ -20,19 +20,20 @@ class UrlCrawlerServiceTest extends \PHPUnit_Framework_TestCase
                 <link rel="stylesheet" href="/baseCss.css">
             </head>
             <body>
-                <p class="message temp" id="first">Hello World!</p>
-                <p id="second">Hello Crawler!</p>
-                <div class="trend"><a href="#" class="link" id="link"></a></div>
+                <p class="message temp" id="first"><a href="hello_page">Hello World!</a></p>
+                <p id="second">Hello Crawler!<a href="http://symfony.com/">Symfony</a></p>
+                <div class="trend" id="second"><a href="#" class="link" id="link"></a></div>
+                <a href="hello_page"></a>
             </body>
         </html>';
         $this->css = '
-                    .maincontent-bot {
+                    .trend #test{
                       background: url(images/parallax-bot.png) no-repeat center 0 transparent;
                       height: 50px;
                       position:relative;
                       z-index:1;
                     }
-                    #left-para-mask {
+                    #left-para-mask .message #test{
                         background: url("images/left-para-mask.png") repeat scroll 0 0 transparent;
                         height: 400px;
                         float: left;
@@ -50,38 +51,36 @@ class UrlCrawlerServiceTest extends \PHPUnit_Framework_TestCase
                         width: 130px;
                         z-index: 2;
                     }
-                    .block-center {
+                    .link .trend{
                         border-top: 1px solid #F0F1F8;
                         margin: 30px 0 -30px !important;
                         padding: 25px 0 0;
                         text-align: center;
                     }
-                    .block-center a {
+                    .link a {
                       color: #008ec9;
                     }
                     ';
     }
 
-    /*public function testGetLinkOnCurrentPage()
+    public function testGetLinkOnCurrentPage()
     {
-        $crawl = new UrlCrawlerService('http://seo.imaginarium.in.ua');
-        $crawl->getLinkOnCurrentPage('http://seo.imaginarium.in.ua');
-        $this->assertEquals(true, true);
+        $crawl = new UrlCrawlerService('http://seo.imaginarium.in.ua/');
+        $crawler = new Crawler($this->html,'http://seo.imaginarium.in.ua/');
+        $crawl->getLinkOnCurrentPage($crawler);
+        $expected = new ArrayCollection();
+        $expected->add('http://seo.imaginarium.in.ua/hello_page');
+        $expected->add('http://seo.imaginarium.in.ua/#');
+        $actual=$crawl->getDomainLinks();
+        $this->assertEquals($expected, $actual);
     }
 
-    public function testGetLinks()
-    {
-        $crawl = new UrlCrawlerService('http://wizardry.ua/company/');
-        $crawl->getLinkOnCurrentPage('http://wizardry.ua/company/');
-        $crawl->execute();
-        $this->assertEquals(true, true);
-    }
-*/
     public function testFindClass()
     {
         $crawler = new Crawler($this->html);
         $expected = new ArrayCollection();
-        $expected->add('message temp');
+        $expected->add('message');
+        $expected->add('temp');
         $expected->add('trend');
         $expected->add('link');
         $crawl = new UrlCrawlerService('http://seo.imaginarium.in.ua');
@@ -90,6 +89,7 @@ class UrlCrawlerServiceTest extends \PHPUnit_Framework_TestCase
         $reflectionMethod->setAccessible(true);
         $reflectionMethod->invokeArgs($crawl, array($crawler));
         $actual = $crawl->getClasses();
+        var_dump($actual);
         $this->assertEquals($expected, $actual);
     }
 
@@ -127,6 +127,7 @@ class UrlCrawlerServiceTest extends \PHPUnit_Framework_TestCase
     {
         $crawl = new UrlCrawlerService('http://seo.imaginarium.in.ua');
         $expected = new ArrayCollection();
+        $expected->add('test');
         $expected->add('left-para-mask');
         $expected->add('right-para-mask');
         $myReflection = new \ReflectionClass($crawl);
@@ -141,13 +142,21 @@ class UrlCrawlerServiceTest extends \PHPUnit_Framework_TestCase
     {
         $crawl = new UrlCrawlerService('http://seo.imaginarium.in.ua');
         $expected = new ArrayCollection();
-        $expected->add('maincontent-bot');
-        $expected->add('block-center');
+        $expected->add('trend');
+        $expected->add('message');
+        $expected->add('link');
         $myReflection = new \ReflectionClass($crawl);
         $reflectionMethod = $myReflection->getMethod("parseCSSclasses");
         $reflectionMethod->setAccessible(true);
         $reflectionMethod->invokeArgs($crawl, array($this->css));
         $actual = $crawl->getCSSclasses();
         $this->assertEquals($expected, $actual);
+    }
+
+    public function testExecute (){
+        $crawl = new UrlCrawlerService('http://seo.imaginarium.in.ua');
+        $crawler = new Crawler($this->html,'http://seo.imaginarium.in.ua/');
+        $crawl->execute($crawler,$this->css);
+        $this->assertEquals(true,true);
     }
 }

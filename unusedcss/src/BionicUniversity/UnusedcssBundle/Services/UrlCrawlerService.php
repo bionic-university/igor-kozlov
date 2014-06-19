@@ -18,9 +18,9 @@ class UrlCrawlerService
     protected $domain;
 
     /**
-     * @var array
+     * @var ArrayCollection
      */
-    protected $domainLinks = array();
+    protected $domainLinks;
 
     /**
      * @var ArrayCollection
@@ -52,7 +52,7 @@ class UrlCrawlerService
     {
         $this->site_url = $site_url;
         $this->domain = parse_url($site_url, PHP_URL_HOST);
-        $this->domainLinks = array();
+        $this->domainLinks = new ArrayCollection();
         $this->classes = new ArrayCollection();
         $this->ids = new ArrayCollection();
         $this->stylesheets = new ArrayCollection();
@@ -70,7 +70,7 @@ class UrlCrawlerService
     }
 
     /**
-     * @return array
+     * @return ArrayCollection
      */
     public function getDomainLinks()
     {
@@ -109,59 +109,71 @@ class UrlCrawlerService
         return $this->CSSids;
     }
 
-    public function execute()
+    public function execute($crawler,$html)
     {
-        foreach ($this->getDomainLinks() as $key => $link) {
-            $this->getLinkOnCurrentPage($link);
-        }
-        foreach ($this->getDomainLinks() as $key => $link) {
-            echo $link . PHP_EOL;
-        }
+
+        $this->findClasses($crawler);
+        $this->getClasses();
+        $this->findStylesheet($crawler);
+        $this->parseCSSclasses($html);
+        $this->getCSSclasses();
+        var_dump($this->margeCollection($this->getClasses(),$this->getCSSclasses()));
     }
 
-    public function getLinkOnCurrentPage($link)
+    public function getLinkOnCurrentPage(Crawler $crawler)
     {
-        $html = file_get_contents($link);
-        $crawler = new Crawler($html, $link);
         $links = $crawler->filter('a')->each(function (Crawler $node, $i) {
             return $node->link()->getUri();
         });
         foreach ($links as $key => $link) {
             $linkParts = parse_url($link);
-            if (empty($linkParts['host']) || $linkParts['host'] !== $this->domain || $linkParts['scheme'] !== 'http'
-                || in_array($link, $this->getDomainLinks())
-            ) {
+            if (empty($linkParts['host']) || $linkParts['host'] !== $this->domain || $linkParts['scheme'] !== 'http') {
                 unset($links[$key]);
             }
         }
         foreach ($links as $key => $link) {
-            $this->domainLinks[] = $link;
+            if (!$this->domainLinks->contains($link)) {
+                $this->domainLinks->add($link);
+            }
         }
     }
-    //@TODO: find solution for double classes
+
     private function parseCSSclasses($css)
     {
-        preg_match_all('/(?<=\\.)[_A-Za-z0-9\\-]+(?=[ ]*[{:])/', $css, $matches, PREG_SET_ORDER);
+        preg_match_all('/(?<=\\.)[_A-Za-z0-9\\-]+(?=[ ]*[.#{:])/', $css, $matches, PREG_SET_ORDER);
         foreach ($matches as $val) {
-            var_dump($val);
-            $this->CSSclasses->add($val[0]);
+            if (!$this->CSSclasses->contains($val[0])) {
+                $this->CSSclasses->add($val[0]);
+            }
         }
     }
 
     private function parseCssIds($css)
     {
-        preg_match_all('/(?<=\\#)[_A-Za-z0-9\\-]+(?=[ ]*[{:])/', $css, $matches, PREG_SET_ORDER);
+        preg_match_all('/(?<=\\#)[_A-Za-z0-9\\-]+(?=[ ]*[.#{:])/', $css, $matches, PREG_SET_ORDER);
         foreach ($matches as $val) {
-            $this->CSSids->add($val[0]);
+            if (!$this->CSSids->contains($val[0])) {
+                $this->CSSids->add($val[0]);
+            }
         }
     }
 
-    //@TODO: find solution for double classes
     private function findClasses(Crawler $crawler)
     {
         $crawler->filter('')->each(function ($node, $i) {
             if (!empty($node->attr('class'))) {
-                $this->classes->add($node->attr('class'));
+                if (strpos($node->attr('class'), " ") != false) {
+                    $pieces = explode(" ", $node->attr('class'));
+                    foreach ($pieces as $value) {
+                        if (!$this->classes->contains($value)) {
+                            $this->classes->add($value);
+                        }
+                    }
+                } else {
+                    if (!$this->classes->contains($node->attr('class'))) {
+                        $this->classes->add($node->attr('class'));
+                    }
+                }
             }
         });
     }
@@ -170,7 +182,9 @@ class UrlCrawlerService
     {
         $crawler->filter('')->each(function ($node, $i) {
             if (!empty($node->attr('id'))) {
-                $this->ids->add($node->attr('id'));
+                if (!$this->ids->contains($node->attr('id'))) {
+                    $this->ids->add($node->attr('id'));
+                }
             }
         });
     }
@@ -178,10 +192,21 @@ class UrlCrawlerService
     private function findStylesheet(Crawler $crawler)
     {
         $crawler->filter('link[rel=stylesheet]')->each(function ($node, $i) {
-            echo $node->attr('href') . PHP_EOL;
             if (!empty($node->attr('href'))) {
-                $this->stylesheets->add($node->attr('href'));
+                if (!$this->stylesheets->contains($node->attr('href'))) {
+                    $this->stylesheets->add($node->attr('href'));
+                }
             }
         });
+    }
+
+    private function margeCollection(ArrayCollection $inHtml, ArrayCollection $inCSS)
+    {
+        var_dump($inHtml);
+        var_dump($inCSS);
+        $unused = new ArrayCollection(
+            array_diff($inHtml->toArray(), $inCSS->toArray())
+        );
+        return $unused;
     }
 }
