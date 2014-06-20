@@ -66,12 +66,12 @@ class UrlCrawlerServiceTest extends \PHPUnit_Framework_TestCase
     public function testGetLinkOnCurrentPage()
     {
         $crawl = new UrlCrawlerService('http://seo.imaginarium.in.ua/');
-        $crawler = new Crawler($this->html,'http://seo.imaginarium.in.ua/');
+        $crawler = new Crawler($this->html, 'http://seo.imaginarium.in.ua/');
         $crawl->getLinkOnCurrentPage($crawler);
         $expected = new ArrayCollection();
         $expected->add('http://seo.imaginarium.in.ua/hello_page');
         $expected->add('http://seo.imaginarium.in.ua/#');
-        $actual=$crawl->getDomainLinks();
+        $actual = $crawl->getDomainLinks();
         $this->assertEquals($expected, $actual);
     }
 
@@ -153,10 +153,11 @@ class UrlCrawlerServiceTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $actual);
     }
 
-    public function testExecute (){
+
+    public function testExecute()
+    {
         $crawl = new UrlCrawlerService('http://seo.imaginarium.in.ua');
-        $crawler = new Crawler($this->html,'http://seo.imaginarium.in.ua/');
-        $crawl->execute($crawler,$this->css);
-        $this->assertEquals(true,true);
+        $crawl->execute();
+        $this->assertEquals(true, true);
     }
 }

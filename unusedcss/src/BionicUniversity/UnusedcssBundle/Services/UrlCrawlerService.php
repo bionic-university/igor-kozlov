@@ -5,6 +5,11 @@ use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\HttpKernel\Client;
 use Doctrine\Common\Collections\ArrayCollection;
 
+/**
+ * Class UrlCrawlerService
+ *
+ * @package BionicUniversity\UnusedcssBundle\Services
+ */
 class UrlCrawlerService
 {
     /*
@@ -109,17 +114,41 @@ class UrlCrawlerService
         return $this->CSSids;
     }
 
-    public function execute($crawler,$html)
+    /**
+     * Main logic: get unused css for input URL
+     */
+    public function execute()
     {
-
+        $html = file_get_contents($this->site_url);
+        $crawler = new Crawler($html, $this->site_url);
+        $this->getLinkOnCurrentPage($crawler);
         $this->findClasses($crawler);
-        $this->getClasses();
+        $this->findIds($crawler);
+        //$this->getClasses();
         $this->findStylesheet($crawler);
-        $this->parseCSSclasses($html);
-        $this->getCSSclasses();
-        var_dump($this->margeCollection($this->getClasses(),$this->getCSSclasses()));
+        // $this->parseCSSclasses($html);
+        //$this->getCSSclasses();
+        foreach ($this->getDomainLinks()->toArray() as &$link) {
+            $linkHtml = file_get_contents($link);
+            $linkCrawler = new Crawler($linkHtml, 'http://' . $this->domain . '/');
+            $this->getLinkOnCurrentPage($linkCrawler);
+            $this->findClasses($linkCrawler);
+            $this->findIds($linkCrawler);
+            $this->findStylesheet($linkCrawler);
+        }
+        var_dump($this->getStylesheets());
+        foreach ($this->getStylesheets()->toArray() as $stylesheet) {
+            $css = file_get_contents('http://' . $this->domain . '/' . $stylesheet);
+            $this->parseCSSclasses($css);
+            $this->parseCssIds($css);
+        }
+        var_dump($this->margeCollection($this->getClasses(), $this->getCSSclasses()));
+        var_dump($this->margeCollection($this->getIds(), $this->getCSSids()));
     }
 
+    /**
+     * @param Crawler $crawler
+     */
     public function getLinkOnCurrentPage(Crawler $crawler)
     {
         $links = $crawler->filter('a')->each(function (Crawler $node, $i) {
@@ -138,6 +167,9 @@ class UrlCrawlerService
         }
     }
 
+    /**
+     * @param $css
+     */
     private function parseCSSclasses($css)
     {
         preg_match_all('/(?<=\\.)[_A-Za-z0-9\\-]+(?=[ ]*[.#{:])/', $css, $matches, PREG_SET_ORDER);
@@ -148,6 +180,9 @@ class UrlCrawlerService
         }
     }
 
+    /**
+     * @param $css
+     */
     private function parseCssIds($css)
     {
         preg_match_all('/(?<=\\#)[_A-Za-z0-9\\-]+(?=[ ]*[.#{:])/', $css, $matches, PREG_SET_ORDER);
@@ -158,6 +193,11 @@ class UrlCrawlerService
         }
     }
 
+    /**
+     * Finds classes on current page
+     *
+     * @param Crawler $crawler
+     */
     private function findClasses(Crawler $crawler)
     {
         $crawler->filter('')->each(function ($node, $i) {
@@ -178,6 +218,11 @@ class UrlCrawlerService
         });
     }
 
+    /**
+     * Finds id on current page
+     *
+     * @param Crawler $crawler
+     */
     private function findIds(Crawler $crawler)
     {
         $crawler->filter('')->each(function ($node, $i) {
@@ -189,6 +234,11 @@ class UrlCrawlerService
         });
     }
 
+    /**
+     * Finds stylesheet on current page
+     *
+     * @param Crawler $crawler
+     */
     private function findStylesheet(Crawler $crawler)
     {
         $crawler->filter('link[rel=stylesheet]')->each(function ($node, $i) {
@@ -200,10 +250,16 @@ class UrlCrawlerService
         });
     }
 
+    /**
+     * @param ArrayCollection $inHtml
+     * @param ArrayCollection $inCSS
+     *
+     * @return ArrayCollection
+     */
     private function margeCollection(ArrayCollection $inHtml, ArrayCollection $inCSS)
     {
-        var_dump($inHtml);
-        var_dump($inCSS);
+        // var_dump($inHtml);
+        //var_dump($inCSS);
         $unused = new ArrayCollection(
             array_diff($inHtml->toArray(), $inCSS->toArray())
         );
