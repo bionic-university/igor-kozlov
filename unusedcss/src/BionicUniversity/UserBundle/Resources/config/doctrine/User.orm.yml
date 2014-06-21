@@ -1,0 +1,34 @@
+BionicUniversity\UserBundle\Entity\User:
+    type: entity
+    table: null
+    repositoryClass: BionicUniversity\UserBundle\Entity\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+       username:
+                type: string
+                length: 25
+                unique: true
+       email:
+            type: string
+            length: 255
+            unique: true
+       password:
+            type: string
+            length: 255
+       salt:
+             type: string
+             length: 32
+    manyToMany:
+            roles:
+                targetEntity: BionicUniversity\UserBundle\Entity\Role
+                inversedBy: users
+    oneToMany:
+            tests:
+                 targetEntity: BionicUniversity\UnusedcssBundle\Entity\TestResult
+                 mappedBy: user
+    lifecycleCallbacks: {  }

@@ -1,4 +1,4 @@
-BionicUniversity\UnusedcssBundle\Entity\User:
+BionicUniversity\UserBundle\Entity\Role:
     type: entity
     table: null
     id:
@@ -8,20 +8,15 @@ BionicUniversity\UnusedcssBundle\Entity\User:
             generator:
                 strategy: AUTO
     fields:
-        username:
+        name:
             type: string
             length: 255
-        password:
+        role:
             type: string
             length: 255
-        email:
             unique: true
-            type: string
-            length: 255
-
-    oneToMany:
-             tests:
-                targetEntity: BionicUniversity\UnusedcssBundle\Entity\TestResult
-                mappedBy: user
-
+    manyToMany:
+            users:
+                targetEntity: BionicUniversity\UserBundle\Entity\User
+                mappedBy: roles
     lifecycleCallbacks: {  }

@@ -1,0 +1,21 @@
+bionic_university_user_bumdle_role:
+    resource: "@BionicUniversityUserBundle/Resources/config/routing/role.yml"
+    prefix:   /role
+
+account_register:
+    path:     /register
+    defaults: { _controller: BionicUniversityUserBundle:Account:register }
+
+account_create:
+    path:     /register/create
+    defaults: { _controller: BionicUniversityUserBundle:Account:create }
+test_security:
+    pattern: /secure_area
+    defaults: {_controller: BionicUniversityUserBundle:Account:dumpString }
+login:
+    pattern:   /login
+    defaults:  { _controller: BionicUniversityUserBundle:Account:login }
+login_check:
+    pattern:   /login_check
+logout:
+    path:     /logout

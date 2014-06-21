@@ -17,11 +17,11 @@ BionicUniversity\UnusedcssBundle\Entity\TestResult:
 
     manyToOne:
               user:
-                targetEntity: BionicUniversity\UnusedcssBundle\Entity\User
+                targetEntity: BionicUniversity\UserBundle\Entity\User
                 inversedBy: tests
 
     oneToMany:
               links:
                 targetEntity: BionicUniversity\UnusedcssBundle\Entity\Link
-                mappedBy: links
+                mappedBy: test
     lifecycleCallbacks: {  }

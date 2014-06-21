@@ -20,7 +20,7 @@ class UrlCrawlerService
     /**
      * @var string
      */
-    protected $domain;
+    private $domain;
 
     /**
      * @var ArrayCollection
