@@ -1,0 +1,228 @@
+/* A Free Design by Bryant Smith (bryantsmith.com) */
+
+body {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #000000;
+    background: #FFFFFF;
+}
+*
+{
+    margin: 0 auto 0 auto;
+    text-align:left;}
+
+
+html, body {
+    text-align: center;
+    height: 100%;
+}
+p {text-align: left;}
+
+
+h1
+{
+    font-size:30px;
+    font-weight:normal;
+    padding:10px;
+}
+
+
+h2
+{
+    font-size:26px;
+    font-weight:normal;
+    padding-left:15px;
+    padding-top:35px;
+}
+
+#main
+{
+    width:641px;
+    padding-bottom:20px;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -20px; /* the bottom margin is the negative value of the footer's height */
+}
+
+#header
+{
+    color:#ffffff;
+    clear:both;
+    width:641px;
+    height:25px;
+    background-color:#9B1313;
+    background-repeat:no-repeat;
+    text-align:right;
+    line-height:25px;
+}
+
+#header a, #header a:visited, #header a:hover
+{
+    font-size:12px;
+    font-weight:bold;
+    color:#FFFFFF;
+    padding-left:12px;
+    padding-right:5px;
+    text-decoration:none;
+    line-height:25px;
+}
+
+#footer
+{
+    color:#ffffff;
+    font-size:10px;
+    clear:both;
+    width:641px;
+    height:25px;
+    background-color:#9B1313;
+    background-repeat:no-repeat;
+    text-align:center;
+    line-height:25px;
+    font-weight:normal;
+    height: 20px;
+}
+
+#footer a, #footer a:visited, #footer a:hover
+{
+    font-size:10px;
+    color:#FFFFFF;
+    text-decoration:none;
+    line-height:25px;
+}
+
+
+
+
+#header a:hover {
+    color:#F2EAEA;
+    border:none;
+}
+
+#contentColumn
+{
+    float:left;
+    width:441px;
+    font-size: 16px;
+}
+
+#navColumn
+{
+    float:left;
+    width:200px;
+    padding-top:50px;
+}
+#contentColumn p
+{
+    text-align:left;
+    line-height:25px;
+    letter-spacing:-1px;
+    margin:6px;
+}
+
+
+
+.divider
+{
+    width:408px;
+    height:3px;
+    margin-bottom:10px;
+
+}
+.subHeader
+{
+    margin-top:20px;
+    margin-bottom:4px;
+    width:150px;
+    height:20px;
+    background-color:#9B1313;
+    text-align:center;
+}
+
+.subHeader h3
+{
+    font-size:13px;
+    line-height:20px;
+    color:#FFFFFF;
+    text-align:center;
+}
+
+ul,  li
+{
+    text-align:center;
+    padding:3px;
+    list-style:none;
+}
+
+
+
+a, a:visited
+{
+    text-decoration:none;
+    color:#9B1313;
+}
+
+a:hover
+{
+    color:#9B1313;
+    border-bottom:dashed 1px #DD6A6A;
+}
+#contact-area {
+    width: 600px;
+    margin-top: 25px;
+}
+
+#contact-area input, #contact-area textarea {
+    padding: 5px;
+    width: 471px;
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    margin: 0px 0px 10px 0px;
+    border: 2px solid #ccc;
+}
+
+#contact-area textarea {
+    height: 90px;
+}
+
+#contact-area textarea:focus, #contact-area input:focus {
+    border: 2px solid #900;
+}
+
+#contact-area .submit-button {
+    width: 100px;
+    float: right;
+}
+
+label {
+    float: left;
+    text-align: right;
+    margin-right: 15px;
+    width: 100px;
+    padding-top: 5px;
+    font-size: 14px;
+}
+#registration label{
+    display: none;
+}
+#registration_user label {
+    display:block;
+}
+#contact-area button {
+    padding: 10px 14px;
+    -webkit-border-radius: 2px 2px;
+    border: solid 1px rgb(153, 153, 153);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(255, 255, 255)), to(rgb(221, 221, 221)));
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    text-shadow: 0px 1px 1px rgba(255,255,255,1);
+    line-height: 1;
+    float:right;
+    font-size: 16px;
+}

@@ -5,5 +5,3 @@ services:
     bionic_university_unusedcss.agregator:
        class: %bionic_university_unusedcss.urlCrawler.class%
        arguments:  [%site_url%]
-       calls:
-          - [setEm, [ @doctrine.orm.default_entity_manager ]]

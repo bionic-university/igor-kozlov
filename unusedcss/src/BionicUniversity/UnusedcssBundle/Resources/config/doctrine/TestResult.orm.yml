@@ -8,11 +8,11 @@ BionicUniversity\UnusedcssBundle\Entity\TestResult:
             generator:
                 strategy: AUTO
     fields:
-        cssOnPage:
+        url:
+             type: text
+        unusedClasses:
             type: text
-        cssInStylesheet:
-            type: text
-        unusedCSS:
+        unusedIds:
             type: text
 
     manyToOne:

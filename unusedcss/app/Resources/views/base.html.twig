@@ -2,21 +2,31 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    {% stylesheets 'bundles/bionicuniversityunusedcss/css/main.css' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
     <title>{% block title %}Test Application{% endblock %}</title>
 </head>
 <body>
-<div id="sidebar">
+<div id="main">
     {% block sidebar %}
-    <ul><li><a href="{{ path('bionic_university_unusedcss_homepage') }}">Home</a></li>
-        <li><a href="{{ path('account_register') }}">Register</a></li>
-        {% if is_granted("ROLE_USER") %}<li><a href="{{ path('logout') }}">Logout</a></li>{% else %}
-        <li><a href="{{ path('login') }}">Login</a></li>{% endif %}
-    </ul>
-    {% endblock %}
-</div>
+        <div id="header"><a href="{{ path('bionic_university_unusedcss_homepage') }}">Home</a>
+        <a href="{{ path('account_register') }}">Register</a>
+        {% if is_granted("ROLE_USER") %}
+            <a href="{{ path('bionic_university_unusedcss_crawl') }}">Crawl site</a>
+            <a href="{{ path('logout') }}">Logout</a>
 
-<div id="content">
+        {% else %}
+        <a href="{{ path('login') }}">Login</a>{% endif %}
+    </div>
+    {% endblock %}
+
+
+<div id="contentColumn">
+    <div class="divider">    </div>
     {% block body %}{% endblock %}
 </div>
+</div>
+<div id="footer"></div>
 </body>
 </html>

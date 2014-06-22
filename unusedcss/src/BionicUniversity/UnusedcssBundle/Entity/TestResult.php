@@ -16,19 +16,19 @@ class TestResult
     private $id;
 
     /**
-     * @var string
+     * @var String
      */
-    private $cssOnPage;
+    private $url;
 
     /**
-     * @var string
+     * @var ArrayCollection
      */
-    private $cssInStylesheet;
+    private $unusedClasses;
 
     /**
-     * @var string
+     * @var ArrayCollection
      */
-    private $unusedCSS;
+    private $unusedIds;
 
     /*
     * @var User
@@ -43,6 +43,8 @@ class TestResult
     public function __construct()
     {
         $this->links = new ArrayCollection();
+        $this->unusedClasses = new ArrayCollection();
+        $this->unusedIds = new ArrayCollection();
     }
 
 
@@ -83,71 +85,57 @@ class TestResult
     }
 
     /**
-     * Set cssOnPage
+     * Set unusedClasses
      *
-     * @param string $cssOnPage
-     * @return TestResult
+     * @param ArrayCollection $unusedCSS
      */
-    public function setCssOnPage($cssOnPage)
+    public function setUnusedClasses($unusedCSS)
     {
-        $this->cssOnPage = $cssOnPage;
-
-        return $this;
+        $this->unusedClasses = $unusedCSS;
     }
 
     /**
-     * Get cssOnPage
+     * Get unusedClasses
      *
      * @return string
      */
-    public function getCssOnPage()
+    public function getUnusedClasses()
     {
-        return $this->cssOnPage;
+        return $this->unusedClasses;
     }
 
     /**
-     * Set cssInStylesheet
-     *
-     * @param string $cssInStylesheet
-     * @return TestResult
+     * @return ArrayCollection
      */
-    public function setCssInStylesheet($cssInStylesheet)
+    public function getUnusedIds()
     {
-        $this->cssInStylesheet = $cssInStylesheet;
-
-        return $this;
+        return $this->unusedIds;
     }
 
     /**
-     * Get cssInStylesheet
-     *
-     * @return string
+     * @param ArrayCollection $unusedIds
      */
-    public function getCssInStylesheet()
+    public function setUnusedIds($unusedIds)
     {
-        return $this->cssInStylesheet;
+        $this->unusedIds = $unusedIds;
     }
 
     /**
-     * Set unusedCSS
-     *
-     * @param string $unusedCSS
-     * @return TestResult
+     * @return String
      */
-    public function setUnusedCSS($unusedCSS)
+    public function getUrl()
     {
-        $this->unusedCSS = $unusedCSS;
-
-        return $this;
+        return $this->url;
     }
 
     /**
-     * Get unusedCSS
-     *
-     * @return string
+     * @param String $url
      */
-    public function getUnusedCSS()
+    public function setUrl($url)
     {
-        return $this->unusedCSS;
+        $this->url = $url;
     }
+
+
+
 }

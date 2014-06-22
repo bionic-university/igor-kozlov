@@ -1,3 +1,6 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+<div id="contact-area">
 {% if error %}
     <div>{{ error.message }}</div>
 {% endif %}
@@ -15,5 +18,7 @@
         <input type="hidden" name="_target_path" value="/account" />
     #}
 
-    <button type="submit">login</button>
+    <button type="submit" class="submit-button">Login</button>
 </form>
+</div>
+{% endblock %}
