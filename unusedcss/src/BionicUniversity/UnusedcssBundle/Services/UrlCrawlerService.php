@@ -52,6 +52,16 @@ class UrlCrawlerService
      */
     protected $CSSids;
 
+    /**
+     * @var ArrayCollection
+     */
+    protected $unusedClass;
+
+    /**
+     * @var ArrayCollection
+     */
+    protected $unusedId;
+
 
     public function __construct($site_url)
     {
@@ -63,6 +73,8 @@ class UrlCrawlerService
         $this->stylesheets = new ArrayCollection();
         $this->CSSclasses = new ArrayCollection();
         $this->CSSids = new ArrayCollection();
+        $this->unusedClass = new ArrayCollection();
+        $this->unusedId = new ArrayCollection();
     }
 
 
@@ -79,7 +91,7 @@ class UrlCrawlerService
      */
     public function getDomainLinks()
     {
-        return $this->domainLinks;
+        return $this->domainLinks->toArray();
     }
 
     /**
@@ -115,6 +127,22 @@ class UrlCrawlerService
     }
 
     /**
+     * @return ArrayCollection
+     */
+    public function getUnusedClass()
+    {
+        return $this->unusedClass->toArray();
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getUnusedId()
+    {
+        return $this->unusedId->toArray();
+    }
+
+    /**
      * Main logic: get unused css for input URL
      */
     public function execute()
@@ -128,7 +156,7 @@ class UrlCrawlerService
         $this->findStylesheet($crawler);
         // $this->parseCSSclasses($html);
         //$this->getCSSclasses();
-        foreach ($this->getDomainLinks()->toArray() as &$link) {
+        foreach ($this->getDomainLinks() as &$link) {
             $linkHtml = file_get_contents($link);
             $linkCrawler = new Crawler($linkHtml, 'http://' . $this->domain . '/');
             $this->getLinkOnCurrentPage($linkCrawler);
@@ -136,14 +164,13 @@ class UrlCrawlerService
             $this->findIds($linkCrawler);
             $this->findStylesheet($linkCrawler);
         }
-        var_dump($this->getStylesheets());
         foreach ($this->getStylesheets()->toArray() as $stylesheet) {
             $css = file_get_contents('http://' . $this->domain . '/' . $stylesheet);
             $this->parseCSSclasses($css);
             $this->parseCssIds($css);
         }
-        var_dump($this->margeCollection($this->getClasses(), $this->getCSSclasses()));
-        var_dump($this->margeCollection($this->getIds(), $this->getCSSids()));
+        $this->unusedClass = $this->margeCollection($this->getClasses(), $this->getCSSclasses());
+        $this->unusedId = $this->margeCollection($this->getIds(), $this->getCSSids());
     }
 
     /**

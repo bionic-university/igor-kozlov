@@ -1,0 +1,11 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+    <h2>Links:</h2>
+    {% for key, value in links %}
+        {{ value}}
+    {% endfor %}
+    <h2>Unused Classes:</h2>
+        {{ classes | replace({",":"<br/>"}) |raw }}
+    <h2>Unused Ids:</h2>
+        {{ ids | replace({",":"<br/>"}) | raw }}
+{% endblock %}

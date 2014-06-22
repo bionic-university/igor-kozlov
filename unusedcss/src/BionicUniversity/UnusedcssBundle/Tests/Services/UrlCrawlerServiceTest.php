@@ -72,7 +72,7 @@ class UrlCrawlerServiceTest extends \PHPUnit_Framework_TestCase
         $expected->add('http://seo.imaginarium.in.ua/hello_page');
         $expected->add('http://seo.imaginarium.in.ua/#');
         $actual = $crawl->getDomainLinks();
-        $this->assertEquals($expected, $actual);
+        $this->assertEquals($expected->toArray(), $actual);
     }
 
     public function testFindClass()

@@ -14,6 +14,9 @@ class AccountController extends Controller
 
     public function registerAction()
     {
+        if ($this->getUser()) {
+            return $this->redirect($this->generateUrl('bionic_university_unusedcss_homepage'));
+        }
         $registration = new Registration();
         $form = $this->createForm(new RegistrationType(), $registration, array(
             'action' => $this->generateUrl('account_create'),
@@ -46,7 +49,7 @@ class AccountController extends Controller
             $em->persist($user);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('bionic_university_user_homepage'));
+            return $this->redirect($this->generateUrl('bionic_university_unusedcss_homepage'));
         }
 
         return $this->render(

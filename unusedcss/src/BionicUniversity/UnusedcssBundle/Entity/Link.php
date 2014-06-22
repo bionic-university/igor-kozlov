@@ -65,8 +65,6 @@ class Link
     public function setLink($link)
     {
         $this->link = $link;
-
-        return $this;
     }
 
     /**
@@ -101,4 +99,11 @@ class Link
     {
         return $this->validationResult;
     }
+
+    function __toString()
+    {
+        return $this->getLink();
+    }
+
+
 }

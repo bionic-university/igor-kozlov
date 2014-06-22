@@ -3,7 +3,13 @@ bionic_university_unusedcss_homepage:
     defaults: { _controller: BionicUniversityUnusedcssBundle:Default:index }
 bionic_university_unusedcss_crawl:
     path:     /crawl
-    defaults: { _controller: BionicUniversityUnusedcssBundle:Default:crawl }
+    defaults: { _controller: BionicUniversityUnusedcssBundle:Test:crawl }
 bionic_university_unusedcss_test_create:
     path:     /crawl/create
-    defaults: { _controller: BionicUniversityUnusedcssBundle:Default:create }
+    defaults: { _controller: BionicUniversityUnusedcssBundle:Test:create }
+bionic_university_unusedcss_test_list:
+    path:     /tests/list
+    defaults: { _controller: BionicUniversityUnusedcssBundle:Test:list }
+bionic_university_unusedcss_test_show:
+    pattern:  /{id}/show
+    defaults: { _controller: BionicUniversityUnusedcssBundle:Test:show }

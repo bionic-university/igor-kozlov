@@ -1,0 +1,25 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+<table class="records_list">
+    <thead>
+    <tr>
+        <th>Url</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td>{{ entity.url }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('bionic_university_unusedcss_test_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

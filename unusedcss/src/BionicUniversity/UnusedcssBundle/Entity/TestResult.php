@@ -21,12 +21,12 @@ class TestResult
     private $url;
 
     /**
-     * @var ArrayCollection
+     * @var String
      */
     private $unusedClasses;
 
     /**
-     * @var ArrayCollection
+     * @var String
      */
     private $unusedIds;
 
@@ -53,7 +53,7 @@ class TestResult
      */
     public function getLinks()
     {
-        return $this->links;
+        return $this->links->toArray();
     }
 
 
@@ -87,7 +87,7 @@ class TestResult
     /**
      * Set unusedClasses
      *
-     * @param ArrayCollection $unusedCSS
+     * @param String $unusedCSS
      */
     public function setUnusedClasses($unusedCSS)
     {
@@ -97,7 +97,7 @@ class TestResult
     /**
      * Get unusedClasses
      *
-     * @return string
+     * @return String
      */
     public function getUnusedClasses()
     {
@@ -105,7 +105,7 @@ class TestResult
     }
 
     /**
-     * @return ArrayCollection
+     * @return String
      */
     public function getUnusedIds()
     {
@@ -113,7 +113,7 @@ class TestResult
     }
 
     /**
-     * @param ArrayCollection $unusedIds
+     * @param String $unusedIds
      */
     public function setUnusedIds($unusedIds)
     {
