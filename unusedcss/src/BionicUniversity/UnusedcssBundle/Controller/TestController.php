@@ -11,15 +11,31 @@ use BionicUniversity\UnusedcssBundle\Entity\TestResult;
 use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 
+/**
+ * Class TestController
+ *
+ * @package BionicUniversity\UnusedcssBundle\Controller
+ */
 class TestController extends Controller
 {
+    /**
+     * @param $name
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function indexAction($name)
     {
         return $this->render('', array('name' => $name));
     }
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function listAction()
     {
+        if (!$this->get('security.context')->isGranted('ROLE_USER')) {
+            return $this->redirect($this->generateUrl('bionic_university_unusedcss_homepage'));
+        }
         $em = $this->getDoctrine()->getManager();
         $user = $this->get('security.context')->getToken()->getUser();
         $entities = $em->getRepository('BionicUniversityUnusedcssBundle:TestResult')->findBy(array('user' => $user));
@@ -29,8 +45,9 @@ class TestController extends Controller
     }
 
     /**
-     * Finds and displays a Cafedra entity.
+     * @param $id
      *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showAction($id)
     {
@@ -45,8 +62,14 @@ class TestController extends Controller
         ));
     }
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function crawlAction()
     {
+        if (!$this->get('security.context')->isGranted('ROLE_USER')) {
+            return $this->redirect($this->generateUrl('bionic_university_unusedcss_homepage'));
+        }
         $test = new TestResult();
         $form = $this->createForm(new TestType(), $test, array(
             'action' => $this->generateUrl('bionic_university_unusedcss_test_create'),
@@ -57,6 +80,11 @@ class TestController extends Controller
         );
     }
 
+    /**
+     * @param Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function createAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
@@ -73,8 +101,15 @@ class TestController extends Controller
             $linksArr = $crawler->getDomainLinks();
             foreach ($linksArr as $value) {
                 $link = new Link();
+                $validator = $this->get('bionic_university_unusedcss.validator');
+                $validator->__construct($value);
+                $result = $validator->validateInput();
+                if ($result) {
+                    $link->setValidationResult('Success');
+                } else {
+                    $link->setValidationResult('Failure');
+                }
                 $link->setTest($test);
-                $link->setValidationResult('Failure');
                 $link->setLink($value);
                 $em->persist($link);
             }

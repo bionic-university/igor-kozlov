@@ -147,15 +147,13 @@ class UrlCrawlerService
      */
     public function execute()
     {
+        $this->domainLinks->add($this->site_url);
         $html = file_get_contents($this->site_url);
         $crawler = new Crawler($html, $this->site_url);
         $this->getLinkOnCurrentPage($crawler);
         $this->findClasses($crawler);
         $this->findIds($crawler);
-        //$this->getClasses();
         $this->findStylesheet($crawler);
-        // $this->parseCSSclasses($html);
-        //$this->getCSSclasses();
         foreach ($this->getDomainLinks() as &$link) {
             $linkHtml = file_get_contents($link);
             $linkCrawler = new Crawler($linkHtml, 'http://' . $this->domain . '/');

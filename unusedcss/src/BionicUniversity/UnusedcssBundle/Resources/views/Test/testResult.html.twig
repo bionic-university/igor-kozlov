@@ -2,7 +2,7 @@
 {% block body %}
     <h2>Links:</h2>
     {% for key, value in links %}
-        {{ value}}
+        <p>{{ value | raw}}</p>
     {% endfor %}
     <h2>Unused Classes:</h2>
         {{ classes | replace({",":"<br/>"}) |raw }}

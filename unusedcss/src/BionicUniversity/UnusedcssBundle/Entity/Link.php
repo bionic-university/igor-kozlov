@@ -102,7 +102,7 @@ class Link
 
     function __toString()
     {
-        return $this->getLink();
+        return "URL: ".$this->getLink().". Validation result: ". $this->getValidationResult().PHP_EOL;
     }
 
 

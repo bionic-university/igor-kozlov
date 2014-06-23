@@ -1,7 +1,11 @@
 parameters:
     bionic_university_unusedcss.urlCrawler.class: BionicUniversity\UnusedcssBundle\Services\UrlCrawlerService
+    bionic_university_unusedcss.validator.class: BionicUniversity\UnusedcssBundle\Services\ValidatorService
 
 services:
     bionic_university_unusedcss.agregator:
        class: %bionic_university_unusedcss.urlCrawler.class%
+       arguments:  [%site_url%]
+    bionic_university_unusedcss.validator:
+       class: %bionic_university_unusedcss.validator.class%
        arguments:  [%site_url%]
