@@ -1,5 +1,9 @@
 {% extends '::base.html.twig' %}
 
-  {% block body %}{% if is_granted("ROLE_USER") %}
-      Hi, {{ app.user.username }}
-  {% endif %}{% endblock %}
+  {% block body %}
+      {% if is_granted("ROLE_USER") %}
+          Hi, {{ app.user.username }}
+      {% endif %}
+      <p>This application allows user find unused classes and ids in html page and validate html page.</p>
+      <p>For use this service, please follow links in top menu.</p>
+  {% endblock %}

@@ -171,6 +171,22 @@ class UrlCrawlerService
         $this->unusedId = $this->margeCollection($this->getIds(), $this->getCSSids());
     }
 
+    /*
+     * @param String $url
+     */
+    private function isTofile($url)
+    {
+        $result = false;
+        $file_formats = array("png", "jpg", "jpeg", "gif", "tiff", "pdf", "doc", "docx", "ppt", "pptx");
+        $path_info = pathinfo($url);
+        if (array_key_exists('extension', $path_info)) {
+            if (in_array(strtolower($path_info['extension']), $file_formats)) {
+                $result = true;
+            }
+        }
+        return $result;
+    }
+
     /**
      * @param Crawler $crawler
      */
@@ -181,7 +197,7 @@ class UrlCrawlerService
         });
         foreach ($links as $key => $link) {
             $linkParts = parse_url($link);
-            if (empty($linkParts['host']) || $linkParts['host'] !== $this->domain || $linkParts['scheme'] !== 'http') {
+            if ($this->isTofile($link) == true || empty($linkParts['host']) || $linkParts['host'] !== $this->domain || $linkParts['scheme'] !== 'http') {
                 unset($links[$key]);
             }
         }

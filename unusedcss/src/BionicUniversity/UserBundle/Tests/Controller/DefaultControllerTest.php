@@ -10,8 +10,11 @@ class DefaultControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/hello/Fabien');
+        $crawler = $client->request('GET', '/');
 
-        $this->assertTrue(true);
+        $this->assertGreaterThan(
+            0,
+            $crawler->filter('html:contains("For use this service")')->count()
+        );
     }
 }
