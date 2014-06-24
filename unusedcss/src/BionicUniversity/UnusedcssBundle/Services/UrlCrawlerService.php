@@ -148,14 +148,22 @@ class UrlCrawlerService
     public function execute()
     {
         $this->domainLinks->add($this->site_url);
-        $html = file_get_contents($this->site_url);
+        $ch = curl_init($this->site_url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
+        $html = curl_exec($ch);
+        curl_close($ch);
         $crawler = new Crawler($html, $this->site_url);
         $this->getLinkOnCurrentPage($crawler);
         $this->findClasses($crawler);
         $this->findIds($crawler);
         $this->findStylesheet($crawler);
         foreach ($this->getDomainLinks() as &$link) {
-            $linkHtml = file_get_contents($link);
+            $ch = curl_init($this->site_url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
+            $linkHtml = curl_exec($ch);
+            curl_close($ch);
             $linkCrawler = new Crawler($linkHtml, 'http://' . $this->domain . '/');
             $this->getLinkOnCurrentPage($linkCrawler);
             $this->findClasses($linkCrawler);

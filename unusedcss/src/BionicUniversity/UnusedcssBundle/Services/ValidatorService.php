@@ -33,7 +33,10 @@ class ValidatorService
     function __construct($site_url)
     {
         $this->url = $site_url;
-        $this->html = file_get_contents($this->url);
+        $ch = curl_init($this->url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
+        $this->html = curl_exec($ch);
 
     }
 
@@ -44,7 +47,7 @@ class ValidatorService
      */
     public function validateInput()
     {
-        $data = array('fragment' => $this->html );
+        $data = array('fragment' => $this->html);
         return $this->validate($data);
     }
 
