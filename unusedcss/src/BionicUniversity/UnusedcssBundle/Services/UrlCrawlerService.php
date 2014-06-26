@@ -159,7 +159,7 @@ class UrlCrawlerService
         $this->findIds($crawler);
         $this->findStylesheet($crawler);
         foreach ($this->getDomainLinks() as &$link) {
-            $ch = curl_init($this->site_url);
+            $ch = curl_init($link);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
             $linkHtml = curl_exec($ch);

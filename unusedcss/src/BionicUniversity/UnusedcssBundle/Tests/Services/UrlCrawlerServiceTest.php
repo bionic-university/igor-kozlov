@@ -156,8 +156,13 @@ class UrlCrawlerServiceTest extends \PHPUnit_Framework_TestCase
 
     public function testExecute()
     {
-        $crawl = new UrlCrawlerService('http://seo.imaginarium.in.ua');
+        $crawl = new UrlCrawlerService('http://unused.imaginarium.in.ua');
         $crawl->execute();
+        var_dump($crawl->getDomainLinks());
+        $crawl->getClasses();
+        var_dump($crawl->getStylesheets());
+        $crawl->getCSSclasses();
+        $crawl->getCSSids();
         $this->assertEquals(true, true);
     }
 }
